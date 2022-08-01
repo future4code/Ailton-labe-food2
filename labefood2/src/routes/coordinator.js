@@ -10,9 +10,6 @@ export const goToSignUpAdress = (navigate)=>{
 export const goToHome = (navigate)=>{
   navigate("/home")
 }
-export const goToSearch = (navigate)=>{
-  navigate("/search")
-}
 export const goToRestDetail = (navigate,id)=>{
   navigate(`/restaurant/${id}`)
 }
