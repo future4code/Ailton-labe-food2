@@ -5,7 +5,6 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import SignUpAddress from "../pages/SignUpAddressPage/SignUpAddressPage";
 import HomePage from "../pages/HomePage/HomePage";
-import SearchPage from "../pages/SearchPage/SearchPage";
 import RestDetailPage from "../pages/RestDetailPage/RestDetailPage";
 import AddCartPage from "../pages/AddCartPage/AddCartPage";
 import CartPage from "../pages/CartPage/CartPage";
@@ -23,7 +22,6 @@ export const Router = () => {
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/signup/address" element={<SignUpAddress />} />
         <Route exact path="/home" element={<HomePage />} />
-        <Route exact path="/search" element={<SearchPage />} />
         <Route exact path="/restaurant/:id" element={<RestDetailPage />} />
         <Route exact path="/add/:id" element={<AddCartPage />} />
         <Route exact path="/cart" element={<CartPage />} />
