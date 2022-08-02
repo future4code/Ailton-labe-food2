@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { midGreen, black } from "../../constants/color";
 
 export const ContainerButton = styled.button`
-  width: 360px;
+  width: 328px;
   height: 42px;
   padding: 12px 16px;
   border-radius: 2px;

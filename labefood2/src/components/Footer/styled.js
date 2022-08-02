@@ -11,3 +11,4 @@ export const ContainerFooter = styled.div`
   letter-spacing: -0.39px;
   color: ${black}; */
 `
+
