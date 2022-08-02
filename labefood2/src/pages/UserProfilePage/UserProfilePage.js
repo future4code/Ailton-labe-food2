@@ -28,6 +28,7 @@ export default function UserProfilePage() {
       <NamesBlackBorder>Histórico de pedidos</NamesBlackBorder>
       <HistoryCard/>
       <HistoryCard/>
+      <HistoryCard/>
       </HistoryContainter>
       <Footer/>
     </div>
