@@ -3,7 +3,7 @@ import useForm from "../../hooks/useForm"
 import {useNavigate} from "react-router-dom"
 import Button from "../../components/Button/Button"
 import { InputStyled, Separator, FormContainer} from "../../styled"
-import { Login } from "../../services/resquests";
+import { Login } from "../../services/requests";
 
 export default function LoginForm() {
   const [form, onChange,clear]= useForm({email:"",password:""})

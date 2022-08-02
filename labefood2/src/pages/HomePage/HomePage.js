@@ -6,6 +6,7 @@ import { Separator } from '../../styled';
 import { NewInput, FilterContainer, Filter } from './styled'
 
 export default function HomePage() {
+
   return (
     <div>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"}/>
@@ -14,9 +15,9 @@ export default function HomePage() {
       <Separator height={"20px"} />
       <FilterContainer>
         <Filter>Burguer</Filter>
-        <Filter>Asiatica</Filter>
+        <Filter>Asiática</Filter>
         <Filter>Massas</Filter>
-        <Filter>Saudavel</Filter>
+        <Filter>Saudável</Filter>
         <Filter>Churrasco</Filter>
       </FilterContainer>
       <CardHome/>
