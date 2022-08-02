@@ -8,7 +8,7 @@ export default function HomePage() {
     <div>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"}/>
       <p>HomePage</p>
-      </div>
+      
       <Footer/>
     </div>
 

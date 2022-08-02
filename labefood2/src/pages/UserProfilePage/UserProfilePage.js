@@ -8,7 +8,6 @@ export default function UserProfilePage() {
     <div>
       <Header type={"semSeta"} title={"Meu perfil"} width={"146.5px"}/>
       <p>UserProfilePage</p>
-      </div>
       <Footer/>
     </div>
   )
