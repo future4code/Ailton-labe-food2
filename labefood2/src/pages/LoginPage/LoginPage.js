@@ -4,6 +4,7 @@ import Logo from "../../assets/logoFutureLogin.png"
 import { LoginContainer, LoginLogo } from './styled';
 import LoginForm from './LoginForm';
 import { Separator } from '../../styled';
+import { goToSignUp } from '../../routes/coordinator';
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -16,7 +17,7 @@ export default function LoginPage() {
       <Separator height={"16px"} />
       <LoginForm/>
       <Separator height={"16px"} />
-      <p>Não possui cadastro? Clique aqui.</p>
+      <p onClick={()=>goToSignUp(navigate)}>Não possui cadastro? Clique aqui.</p>
     </LoginContainer>
   )
 }

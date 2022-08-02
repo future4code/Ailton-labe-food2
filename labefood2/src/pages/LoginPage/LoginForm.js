@@ -11,6 +11,7 @@ export default function LoginForm() {
   
   const onSubmitForm = (event)=>{
     event.preventDefault()
+    console.log(form)
     // tem que colocar o axios do login recebendo (form,clear,navigate)
   }
 
