@@ -1,11 +1,11 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
+import React from "react";
 import useForm from "../../hooks/useForm"
 import {useNavigate} from "react-router-dom"
 import Button from "../../components/Button/Button"
 import { InputStyled, Separator, FormContainer} from "../../styled"
+import { goToHome } from "../../routes/coordinator";
 
-export default function EditAddressPage() {
+export default function SignUpAddressForm() {
   const [form, onChange,clear]= useForm({street:"",number:"",neighbourhood:"",city:"",state:"",complement:""})
   const navigate = useNavigate()
   
@@ -14,11 +14,9 @@ export default function EditAddressPage() {
     console.log(form)
     // tem que colocar o axios do add adress recebendo (form,clear,navigate)
   }
+
   return (
-    <div>
-      <Header type={"seta"} largura={"109.5px"} title={"Endereço"}/>
-      <Separator height={"16px"} />
-      <FormContainer onSubmit={onSubmitForm}>
+   <FormContainer onSubmit={onSubmitForm}>
       <InputStyled placeholder="Rua/Av." name={"street"} value={form.street} onChange={onChange} type={"text"} required/>
       <Separator height={"16px"} />
       <InputStyled placeholder="Número" name={"number"} value={form.number} onChange={onChange} required/>
@@ -31,10 +29,9 @@ export default function EditAddressPage() {
       <Separator height={"16px"} />
       <InputStyled placeholder="Estado" name={"state"} value={form.state} onChange={onChange} required/>
       <Separator height={"16px"} />
-      <Button type={"submit"} title={"Salvar"}/>
+      <Button onClick={()=>goToHome(navigate)} type={"submit"} title={"Salvar"}/>
    </FormContainer>
-      </div>
   )
 }
 
-// colocar navigate para tela de perfil
+// pesquisar os tipos de type, essa função dentro do form não pega 
