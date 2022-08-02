@@ -7,7 +7,6 @@ export default function CartPage() {
     <div>
       <Header type={"semSeta"} width={"135px"} title={"Meu carrinho"}/>
       <p>CartPage</p>
-      </div>
       <Footer/>
     </div>
 
