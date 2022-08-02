@@ -1,16 +1,16 @@
 import React from 'react'
-import { Separator } from '../../styled';
+import { Separator,PageContainer,PageTitle } from '../../styled';
 import Header from '../../components/Header/Header'
-import { LoginContainer } from '../LoginPage/styled';
+import SignUpAddressForm from './SignUpAddressForm';
 
 export default function SignUpAddressPage() {
   return (
-    <LoginContainer>
+    <PageContainer>
       <Header type={"seta"}/>
       <Separator height={"16px"} />
-      <p>Meu endereço</p>
+      <PageTitle>Meu endereço</PageTitle>
       <Separator height={"16px"} />
-      {/* colocar o form aqui  */}
-    </LoginContainer>
+      <SignUpAddressForm/>
+    </PageContainer>
   )
 }

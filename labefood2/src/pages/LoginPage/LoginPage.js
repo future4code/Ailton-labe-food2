@@ -1,23 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from "../../assets/logoFutureLogin.png"
-import { LoginContainer, LoginLogo } from './styled';
+import {LoginLogo } from './styled';
 import LoginForm from './LoginForm';
-import { Separator } from '../../styled';
+import { Separator,PageContainer,PageTitle } from '../../styled';
 import { goToSignUp } from '../../routes/coordinator';
 
 export default function LoginPage() {
   const navigate = useNavigate()
   return (
-    <LoginContainer>
+    <PageContainer>
       <Separator height={"88px"} />
       <LoginLogo src={Logo}/>
       <Separator height={"16px"} />
-      <p>Entrar</p>
+      <PageTitle>Entrar</PageTitle>
       <Separator height={"16px"} />
       <LoginForm/>
       <Separator height={"16px"} />
-      <p onClick={()=>goToSignUp(navigate)}>Não possui cadastro? Clique aqui.</p>
-    </LoginContainer>
+      <PageTitle onClick={()=>goToSignUp(navigate)}>Não possui cadastro? Clique aqui.</PageTitle>
+    </PageContainer>
   )
 }
