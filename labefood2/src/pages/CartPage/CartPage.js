@@ -2,9 +2,11 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { CartContainer, StyleAddress, Delivery, PriceStyle, Span1, Span2, SubTotalDiv, SubTitle, ContainerCheck, Cash, CreditCard, ButtonCart } from "./styled";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 
 export default function CartPage() {
+  useProtectedPage()
   return (
     <CartContainer>
       <Header type={"semSeta"} width={"135px"} title={"Meu carrinho"} />
