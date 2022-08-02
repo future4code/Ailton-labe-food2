@@ -13,6 +13,7 @@ export default function Header(props) {
         <>
       <Separator width={"16px"}/>
        <SetaImg  src={seta} onClick={()=>goBack(navigate)}/>
+       <Separator width={props.largura}/>
        </>)}
       {props.type ==="semSeta" &&(
         <Separator width={props.width}/>
