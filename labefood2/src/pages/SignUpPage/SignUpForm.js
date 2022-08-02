@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom"
 import Button from "../../components/Button/Button"
 import { InputStyled, Separator, FormContainer} from "../../styled"
 import { goToSignUpAdress } from "../../routes/coordinator";
+import { Singup } from "../../services/requests";
 
 export default function SignUpForm() {
   const [form, onChange,clear]= useForm({name:"",email:"",cpf:"",password:""})
@@ -12,6 +13,7 @@ export default function SignUpForm() {
   const onSubmitForm = (event)=>{
     event.preventDefault()
     console.log(form)
+    Singup(form,goToSignUpAdress, navigate, clear)
     // tem que colocar o axios do signup recebendo (form,clear,navigate)
   }
 
