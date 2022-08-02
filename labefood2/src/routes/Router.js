@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LogoPage from "../pages/LogoPage/LogoPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
-import SignUpAddress from "../pages/SignUpAddressPage/SignUpAddressPage";
+import SignUpAddressPage from "../pages/SignUpAddressPage/SignUpAddressPage";
 import HomePage from "../pages/HomePage/HomePage";
 import RestDetailPage from "../pages/RestDetailPage/RestDetailPage";
 import AddCartPage from "../pages/AddCartPage/AddCartPage";
@@ -20,7 +20,7 @@ export const Router = () => {
         <Route index element={<LogoPage />} />
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/signup" element={<SignUpPage />} />
-        <Route exact path="/signup/address" element={<SignUpAddress />} />
+        <Route exact path="/signup/address" element={<SignUpAddressPage />} />
         <Route exact path="/home" element={<HomePage />} />
         <Route exact path="/restaurant/:id" element={<RestDetailPage />} />
         <Route exact path="/add/:id" element={<AddCartPage />} />
