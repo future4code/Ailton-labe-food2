@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { InputStyled, Separator, FormContainer } from "../../styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { UpdateProfile } from "../../services/requests";
+import { goToUserProfile } from "../../routes/coordinator";
 
 export default function EditProfilePage() {
   useProtectedPage()
@@ -13,8 +15,7 @@ export default function EditProfilePage() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    console.log(form);
-    // tem que colocar o axios do updateProfile recebendo (form,clear,navigate)
+     UpdateProfile(form,goToUserProfile,navigate);
   };
   return (
     <div>

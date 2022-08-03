@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { InputStyled, Separator, FormContainer } from "../../styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { AddAddress } from "../../services/requests";
+import { goToUserProfile } from "../../routes/coordinator";
 
 export default function EditAddressPage() {
   useProtectedPage()
@@ -21,7 +23,7 @@ export default function EditAddressPage() {
   const onSubmitForm = (event) => {
     event.preventDefault();
     console.log(form);
-    // tem que colocar o axios do add adress recebendo (form,clear,navigate)
+    AddAddress(form, goToUserProfile, navigate, clear)
   };
   return (
     <div>
