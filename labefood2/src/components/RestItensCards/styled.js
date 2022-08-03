@@ -40,7 +40,7 @@ height: 112px;
 export const AddButton = styled.button`
 width: 90px;
 height: 31px;
-margin: 21px 0 0 8px;
+margin: 19px 0 0 8px;
 padding: 8px 20.5px 9px 21.5px;
 color: ${midGreen};
 border: solid 1px ${midGreen};
@@ -59,3 +59,7 @@ border-radius: 0 8px 0 8px;
 font-size: 16px;
 letter-spacing: -0.39px;
 `;
+export const DescriptionContainer = styled.div`
+width: 200px;
+height: 30px;
+`

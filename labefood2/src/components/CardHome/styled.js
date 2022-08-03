@@ -14,12 +14,15 @@ border-right:  solid 1px ${greyish};
 border-bottom: solid 1px ${greyish};
 border-radius: 8px;
 `
-export const DivImg = styled.img`
+export const DivImg = styled.div`
 width: 100%;
 height: 120px;
-border-radius: 8px 8px 0 0 ;
-
-`
+border-radius: 8px 8px 0 0;
+background-image: url(${(props)=> props.FotoImg});
+background-size: 328px 128px;
+background-position: center;
+background-repeat: no-repeat;
+`;
 export const DivText = styled.div`
 display: flex;
 flex-direction: row;

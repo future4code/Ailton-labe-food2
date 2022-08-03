@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { CardHome } from "../../components/CardHome/CardHome";
@@ -7,11 +7,16 @@ import { NewInput, FilterContainer, Filter } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { GlobalContext } from "../../global/GlobalContext";
 
-
 export default function HomePage() {
-  // useProtectedPage()
-  const {Restaurants}= useContext(GlobalContext)
-  console.log(Restaurants)
+  //useProtectedPage()
+
+  const {restaurantsArray} = useContext(GlobalContext);
+  const restauranteList = restaurantsArray?.map((item) => {
+    return (
+      <CardHome key={item.id} item={item}/>
+    )
+  });
+
   return (
     <div>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"} />
@@ -25,7 +30,7 @@ export default function HomePage() {
         <Filter>Saudável</Filter>
         <Filter>Churrasco</Filter>
       </FilterContainer>
-      <CardHome />
+      {restauranteList}
       <Footer />
     </div>
   );
