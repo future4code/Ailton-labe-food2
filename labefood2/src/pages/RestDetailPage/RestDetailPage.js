@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import RestItensCards from '../../components/RestItensCards/RestItensCards'
+import RestItensCards from "../../components/RestItensCards/RestItensCards";
+import { getRestaurantDetail } from "../../services/requests";
 import {
   NamesGreen,
   RestDetailContainer,
@@ -9,10 +10,31 @@ import {
   ContainerRest,
   NamesBlackBorder,
 } from "./styled";
-
+import { useParams } from "react-router-dom";
 
 export default function RestDetailPage() {
-  useProtectedPage()
+  //useProtectedPage()
+
+  const params = useParams();
+  const [details, setDetails] = useState([]);
+  useEffect(() => {
+    getRestaurantDetail(`${params.id}`, setDetails);
+  }, []);
+
+  const principaisList = details
+    ?.filter(
+      (item) => item.category !== "Acompanhamento" && item.category !== "Bebida"
+    )
+    .map((item) => <RestItensCards key={item.id} item={item} />);
+
+  const acompanhamentosList = details
+    ?.filter((item) => item.category === "Acompanhamento")
+    .map((item) => <RestItensCards key={item.id} item={item} />);
+
+  const bebidasList = details
+    ?.filter((item) => item.category === "Bebida")
+    .map((item) => <RestItensCards key={item.id} item={item} />);
+
   return (
     <div>
       <Header type={"seta"} largura={"99.5px"} title={"Restaurante"} />
@@ -28,11 +50,11 @@ export default function RestDetailPage() {
           <p>Endereço</p>
         </ContainerRest>
         <NamesBlackBorder>Principais</NamesBlackBorder>
-        <RestItensCards/>
-        <RestItensCards/>
+        {principaisList}
         <NamesBlackBorder>Acompanhamentos</NamesBlackBorder>
-        <RestItensCards/>
-        <RestItensCards/>
+        {acompanhamentosList}
+        <NamesBlackBorder>Bebidas</NamesBlackBorder>
+        {bebidasList}
       </RestDetailContainer>
     </div>
   );

@@ -1,17 +1,36 @@
-import React from 'react'
-import { Container, DivImg, DivText, ContainerText, ColorText, RestName } from './styled'
+import React from "react";
+import { goToRestDetail } from "../../routes/coordinator";
+import { useNavigate } from "react-router-dom";
+import {
+  Container,
+  DivImg,
+  DivText,
+  ContainerText,
+  ColorText,
+  RestName,
+} from "./styled";
 
-export const CardHome = () => {
+export const CardHome = ({ item }) => {
+  const navigate = useNavigate();
+
+  const onClickRest = (item) => {
+    goToRestDetail(navigate, item?.id);
+  };
+
   return (
-    <Container>
-        <DivImg src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGN__QYo38aSI-q4nCW-GIxtEm_LQe6EBff082M0YOlLp4hN64HB_HXXbvbmncEAUecU8&usqp=CAU"} />
-        <ContainerText>
-        <RestName>Habibs</RestName> 
-         <DivText>
-        <ColorText> 15 - 30min</ColorText>
-        <ColorText>Frete: R$ 5,90</ColorText>
-          </DivText>
-        </ContainerText>
+    <Container onClick={() => onClickRest(item)}>
+      <DivImg
+        FotoImg={
+          item.logoUrl
+        }
+      />
+      <ContainerText>
+        <RestName>{item.name}</RestName>
+        <DivText>
+          <ColorText> {item.deliveryTime} min</ColorText>
+          <ColorText>Frete: R$ {item.shipping},90</ColorText>
+        </DivText>
+      </ContainerText>
     </Container>
-  )
-}
+  );
+};

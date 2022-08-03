@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { BASE_URL } from "../constants/url";
 import { token } from "../constants/token";
 
@@ -24,7 +25,7 @@ export const Singup = (body, goTo, navigate, clear) => {
       localStorage.setItem("token", res.data.token);
       goTo(navigate);
       clear();
-      console.log("Foi direcionado?");
+      console.log("Cadastro realizado!");
     })
     .catch((err) => {
       alert("Verifique se todos os campos foram preenchidos");
@@ -33,14 +34,13 @@ export const Singup = (body, goTo, navigate, clear) => {
 };
 
 export const AddAddress = (body, goTo, navigate, clear) => {
-  console.log(token)
   axios
     .put(`${BASE_URL}address`, body, {
       headers: { auth: token },
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      console.log(res)
+      console.log("Endereço adicionado")
       alert("Endereço adicionado");
       goTo(navigate);
       clear();
@@ -90,25 +90,27 @@ export const UpdateProfile = (body) => {
     });
 };
 
-export const Restaurants = () => {
+export const getRestaurants = (setData) => {
   axios
-    .get(`${BASE_URL}retaurants`, {
+    .get(`${BASE_URL}restaurants`, {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("restaurante localizado");
+      setData(res.data.restaurants);
+      console.log("restaurantes localizados");
     })
     .catch((err) => {
       console.log("Não achou");
     });
 };
 
-export const RestaurantDetail = (id) => {
+export const getRestaurantDetail = (id, setData) => {
   axios
     .get(`${BASE_URL}restaurants/${id}`, {
       headers: { auth: token },
     })
     .then((res) => {
+      setData(res.data.restaurant.products);
       console.log("Pagina sendo exibida");
     })
     .catch((err) => {

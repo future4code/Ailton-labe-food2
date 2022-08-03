@@ -1,24 +1,19 @@
 import React from "react";
-import Comida from "../../assets/comidaburguer.png";
-import { ItemCard, ItemImg, DescriptionItemContain, ItemNameContain, NamesGreen, QttContainer, NamesBlack, AddButton} from "./styled";
+import { ItemCard, ItemImg, DescriptionItemContain, ItemNameContain, NamesGreen, QttContainer, NamesBlack, AddButton, DescriptionContainer} from "./styled";
 
-const RestItensCards = () => {
-
-/*   const onClickRest = (item) => {
-    goToRestDetail(navigate, item?.id);
-  }; */
+const RestItensCards = ({item}) => {
 
   return (
-    <ItemCard /* onClick={()=>{onClickRest(item)}} */>
-      <ItemImg src={Comida} alt="Algo" />
+    <ItemCard>
+      <ItemImg src={item.photoUrl} alt={item.name} />
       <DescriptionItemContain>
         <ItemNameContain>
-          <NamesGreen>Item-Burgão</NamesGreen>
+          <NamesGreen>{item.name}</NamesGreen>
           <QttContainer>2</QttContainer>
         </ItemNameContain>
-        <p>Descrição-Com queijo, sem queijo, tomate, etc</p>
+        <DescriptionContainer><p>{item.description}</p></DescriptionContainer>
         <ItemNameContain>
-          <NamesBlack>R$20,00</NamesBlack>
+          <NamesBlack>R${item.price}</NamesBlack>
           <AddButton>Adicionar</AddButton>
         </ItemNameContain>
       </DescriptionItemContain>
