@@ -24,7 +24,7 @@ export default function RestDetailPage({ item }) {
   useEffect(() => {
     getRestaurantDetail(`${params.id}`, setDetails);
   }, []);
-
+console.log(details);
   const principaisList = details
     ?.filter(
       (item) => item.category !== "Acompanhamento" && item.category !== "Bebida"

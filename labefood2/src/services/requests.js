@@ -47,7 +47,7 @@ export const AddAddress = (body, goTo, navigate, clear) => {
     })
     .catch((err) => {
       alert("Verifique se todos os campos foram preenchidos");
-      console.log("Ver de novo, saiu errado");
+      console.log("Ver de novo, saiu errado", err);
     });
 };
 
@@ -57,33 +57,34 @@ export const FullAddress = () => {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("Endereço localizado");
+      console.log("Endereço localizado", res);
     })
     .catch((err) => {
-      console.log("Ih ;;");
+      console.log("Ih ;;", err);
     });
 };
 
-export const Profile = () => {
+export const Profile = (setData) => {
   axios
     .get(`${BASE_URL}profile`, {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("Usuario localizado");
+      setData(res.data.user);
     })
     .catch((err) => {
       console.log("Tem algo errado");
     });
 };
 
-export const UpdateProfile = (body) => {
+export const UpdateProfile = (body,goTo,navigate) => {
   axios
     .put(`${BASE_URL}profile`, body, {
       headers: { auth: token },
     })
     .then((res) => {
       console.log("Editado");
+      goTo(navigate);
     })
     .catch((err) => {
       console.log("Deu errado");
