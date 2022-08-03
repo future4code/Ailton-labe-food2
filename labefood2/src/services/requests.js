@@ -33,11 +33,14 @@ export const Singup = (body, goTo, navigate, clear) => {
 };
 
 export const AddAddress = (body, goTo, navigate, clear) => {
+  console.log(token)
   axios
     .put(`${BASE_URL}address`, body, {
       headers: { auth: token },
     })
     .then((res) => {
+      localStorage.setItem("token", res.data.token);
+      console.log(res)
       alert("Endereço adicionado");
       goTo(navigate);
       clear();

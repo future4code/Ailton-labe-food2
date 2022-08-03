@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { CardHome } from "../../components/CardHome/CardHome";
 import { Separator } from "../../styled";
 import { NewInput, FilterContainer, Filter } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { GlobalContext } from "../../global/GlobalContext";
+
 
 export default function HomePage() {
-
-
-  useProtectedPage()
+  // useProtectedPage()
+  const {Restaurants}= useContext(GlobalContext)
+  console.log(Restaurants)
   return (
     <div>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"} />
