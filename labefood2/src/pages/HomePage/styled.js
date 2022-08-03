@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { InputStyled } from "../../styled";
 
+export const HomeContainer= styled.div`
+width:100%;
+height:100%;
+`
 export const NewInput = styled(InputStyled)`
   margin-left: 16px;
 `;

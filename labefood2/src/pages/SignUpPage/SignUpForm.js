@@ -1,37 +1,76 @@
 import React from "react";
-import useForm from "../../hooks/useForm"
-import {useNavigate} from "react-router-dom"
-import Button from "../../components/Button/Button"
-import { InputStyled, Separator, FormContainer} from "../../styled"
+import useForm from "../../hooks/useForm";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
+import { InputStyled, Separator, FormContainer } from "../../styled";
 import { goToSignUpAdress } from "../../routes/coordinator";
 import { Singup } from "../../services/requests";
 
 export default function SignUpForm() {
-  const [form, onChange,clear]= useForm({name:"",email:"",cpf:"",password:""})
-  const navigate = useNavigate()
-  
-  const onSubmitForm = (event)=>{
-    event.preventDefault()
-    console.log(form)
-    Singup(form,goToSignUpAdress, navigate, clear)
+  const [form, onChange, clear] = useForm({
+    name: "",
+    email: "",
+    cpf: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    console.log(form);
+    Singup(form, goToSignUpAdress, navigate, clear);
     // tem que colocar o axios do signup recebendo (form,clear,navigate)
-  }
+  };
 
   return (
-   <FormContainer onSubmit={onSubmitForm}>
-      <InputStyled placeholder="Nome e sobrenome" name={"name"} value={form.name} onChange={onChange} type={"text"} required/>
+    <FormContainer onSubmit={onSubmitForm}>
+      <InputStyled
+        placeholder="Nome e sobrenome"
+        name={"name"}
+        value={form.name}
+        onChange={onChange}
+        type={"text"}
+        required
+      />
       <Separator height={"16px"} />
-      <InputStyled placeholder="email@email.com" name={"email"} value={form.email} onChange={onChange} type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+      <InputStyled
+        placeholder="email@email.com"
+        name={"email"}
+        value={form.email}
+        onChange={onChange}
+        type="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        required
+      />
       <Separator height={"16px"} />
-      <InputStyled placeholder="000.000.000-00" name={"cpf"} value={form.cpf} onChange={onChange} pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" required/>
+      <InputStyled
+        placeholder="000.000.000-00"
+        name={"cpf"}
+        value={form.cpf}
+        onChange={onChange}
+        pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+        required
+      />
       <Separator height={"16px"} />
-      <InputStyled placeholder="Mínimo 6 caracteres" name={"password"} value={form.password} onChange={onChange} type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required/>
+      <InputStyled
+        placeholder="Mínimo 6 caracteres"
+        name={"password"}
+        value={form.password}
+        onChange={onChange}
+        type="password"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        required
+      />
       <Separator height={"16px"} />
-      <InputStyled placeholder="tenho que ver como fazer isso"/>
+      <InputStyled placeholder="tenho que ver como fazer isso" />
       <Separator height={"16px"} />
-      <Button onClick={()=>goToSignUpAdress(navigate)} type={"submit"} title={"Criar"}/>
-   </FormContainer>
-  )
+      <Button
+        onClick={() => goToSignUpAdress(navigate)}
+        type={"submit"}
+        title={"Criar"}
+      />
+    </FormContainer>
+  );
 }
 
 // ajeitar os inputs e ver pq o navigate não está funcionando

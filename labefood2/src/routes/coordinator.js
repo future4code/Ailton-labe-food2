@@ -13,9 +13,7 @@ export const goToHome = (navigate)=>{
 export const goToRestDetail = (navigate,id)=>{
   navigate(`/restaurant/${id}`)
 }
-export const goToAddCart = (navigate,id)=>{
-  navigate(`/add/${id}`)
-}
+
 export const goToCart = (navigate)=>{
   navigate("/cart")
 }

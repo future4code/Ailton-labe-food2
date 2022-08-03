@@ -3,13 +3,9 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { CardHome } from "../../components/CardHome/CardHome";
 import { Separator } from "../../styled";
-import {
-  NewInput,
-  FilterContainer,
-  Filter,
-  CategoryListAll,
-  CategoryListFilter,
-} from "./styled";
+
+import { NewInput, FilterContainer, Filter, HomeContainer, CategoryListAll, CategoryListFilter, } from "./styled";
+
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { GlobalContext } from "../../global/GlobalContext";
 
@@ -31,7 +27,7 @@ export default function HomePage() {
   });
 
   return (
-    <div>
+    <HomeContainer>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"} />
       <Separator height={"8px"} />
       <NewInput placeholder="Restaurante" />
@@ -42,6 +38,6 @@ export default function HomePage() {
       </FilterContainer>
       {restaurantsList}
       <Footer />
-    </div>
+    </HomeContainer>
   );
 }
