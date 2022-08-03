@@ -4,10 +4,15 @@ import Footer from '../../components/Footer/Footer';
 import HistoryCard from '../../components/HistoryCard/HistoryCard';
 import PencilImg from '../../assets/edit.svg'
 import {UserInfo, StyleAddress, Delivery, NamesBlackBorder, HistoryContainter, InternalContainer, PencilContainer} from './styled'
+import { useProtectedPage } from "../../hooks/useProtectedPage";
+
+
 
 export default function UserProfilePage() {
+  useProtectedPage();
   return (
     <div>
+
       <Header type={"semSeta"} title={"Meu perfil"} width={"146.5px"}/>
       <UserInfo>
         <InternalContainer>
@@ -32,5 +37,5 @@ export default function UserProfilePage() {
       </HistoryContainter>
       <Footer/>
     </div>
-  )
+  );
 }

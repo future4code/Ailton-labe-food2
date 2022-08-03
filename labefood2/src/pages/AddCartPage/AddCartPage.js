@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export default function AddCartPage() {
-  return (
-    <div>AddCartPage</div>
-  )
+  useProtectedPage();
+  return <div>AddCartPage</div>;
 }

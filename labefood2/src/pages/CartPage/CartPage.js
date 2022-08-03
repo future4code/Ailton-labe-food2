@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 import {
   CartContainer,
   StyleAddress,
@@ -19,7 +20,9 @@ import {
   RestInfo,
 } from "./styled";
 
+
 export default function CartPage() {
+  useProtectedPage()
   return (
     <CartContainer>
       <Header type={"semSeta"} width={"135px"} title={"Meu carrinho"} />
