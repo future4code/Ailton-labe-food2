@@ -9,7 +9,7 @@ import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 
 export default function UserProfilePage() {
-  useProtectedPage();
+  // useProtectedPage();
   return (
     <div>
 

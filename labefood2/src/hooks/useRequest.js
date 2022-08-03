@@ -9,7 +9,7 @@ export const useRequest = (url) => {
       axios
         .get(`${BASE_URL}${url}`, {
           headers:{
-            authorization: token
+            auth: token
           }
         })
         .then((res) => {
