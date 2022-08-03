@@ -97,10 +97,9 @@ export const getRestaurants = (setData) => {
     })
     .then((res) => {
       setData(res.data.restaurants);
-      console.log("restaurantes localizados");
     })
     .catch((err) => {
-      console.log("Não achou");
+      console.log(err.response.data);
     });
 };
 

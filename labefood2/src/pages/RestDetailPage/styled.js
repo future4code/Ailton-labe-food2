@@ -12,6 +12,15 @@ export const ContainerRest = styled.div`
   gap: 8px;
   padding-bottom: 16px;
 `;
+export const ContainerImg = styled.div`
+width:328px;
+height:120px;
+border-radius: 8px 8px 0 0;
+background-image: url(${(props)=> props.Img});
+background-size: 328px 120px;
+background-position: center;
+background-repeat: no-repeat;
+`
 export const DivText = styled.div`
   display: flex;
   justify-content: space-between;
@@ -19,7 +28,7 @@ export const DivText = styled.div`
 `;
 export const NamesGreen = styled.p`
 color: ${midGreen};
-padding-top: 12px;
+padding-top: 4px;
 font-size: 16px;
 `;
 export const NamesBlackBorder = styled.p`

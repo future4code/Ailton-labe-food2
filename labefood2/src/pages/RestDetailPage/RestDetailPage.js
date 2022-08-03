@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import RestItensCards from "../../components/RestItensCards/RestItensCards";
@@ -9,12 +9,16 @@ import {
   DivText,
   ContainerRest,
   NamesBlackBorder,
+  ContainerImg,
 } from "./styled";
 import { useParams } from "react-router-dom";
+import { AddCart } from "../../components/AddCart/AddCart";
+import { GlobalContext } from "../../global/GlobalContext";
+import { Separator } from "../../styled";
 
-export default function RestDetailPage() {
+export default function RestDetailPage({ item }) {
   //useProtectedPage()
-
+  const { setAdd, quantity, restaurantsArray } = useContext(GlobalContext);
   const params = useParams();
   const [details, setDetails] = useState([]);
   useEffect(() => {
@@ -25,37 +29,71 @@ export default function RestDetailPage() {
     ?.filter(
       (item) => item.category !== "Acompanhamento" && item.category !== "Bebida"
     )
-    .map((item) => <RestItensCards key={item.id} item={item} />);
+    .map((item) => (
+      <RestItensCards
+        quantity={quantity}
+        setAdd={setAdd}
+        key={item.id}
+        item={item}
+      />
+    ));
 
   const acompanhamentosList = details
     ?.filter((item) => item.category === "Acompanhamento")
-    .map((item) => <RestItensCards key={item.id} item={item} />);
+    .map((item) => (
+      <RestItensCards
+        quantity={quantity}
+        setAdd={setAdd}
+        key={item.id}
+        item={item}
+      />
+    ));
 
   const bebidasList = details
     ?.filter((item) => item.category === "Bebida")
-    .map((item) => <RestItensCards key={item.id} item={item} />);
+    .map((item) => (
+      <RestItensCards
+        quantity={quantity}
+        setAdd={setAdd}
+        key={item.id}
+        item={item}
+      />
+    ));
 
+  const Rest = restaurantsArray?.filter((item) => {
+    return item.id === params.id;
+  });
+  console.log(acompanhamentosList);
   return (
-    <div>
-      <Header type={"seta"} largura={"99.5px"} title={"Restaurante"} />
-      <RestDetailContainer>
-        <ContainerRest>
-          <img />
-          <NamesGreen>Nome restaurante</NamesGreen>
-          <p>Categoria</p>
-          <DivText>
-            <p>50 - 60 min</p>
-            <p>Frete R$6,00</p>
-          </DivText>
-          <p>Endereço</p>
-        </ContainerRest>
-        <NamesBlackBorder>Principais</NamesBlackBorder>
-        {principaisList}
-        <NamesBlackBorder>Acompanhamentos</NamesBlackBorder>
-        {acompanhamentosList}
-        <NamesBlackBorder>Bebidas</NamesBlackBorder>
-        {bebidasList}
-      </RestDetailContainer>
-    </div>
+    <>
+      <AddCart />
+      <div>
+        <Header type={"seta"} largura={"99.5px"} title={"Restaurante"} />
+        <RestDetailContainer>
+          <ContainerRest>
+            <Separator heigth={"17px"} />
+            <ContainerImg Img={Rest[0]?.logoUrl} />
+            <NamesGreen>{Rest[0]?.name}</NamesGreen>
+            <p>{Rest[0]?.category}</p>
+            <DivText>
+              <p>05 - {Rest[0]?.deliveryTime} min</p>
+              <p>Frete R$ {Rest[0]?.shipping}</p>
+            </DivText>
+            <p>{Rest[0]?.address}</p>
+          </ContainerRest>
+          <NamesBlackBorder>Principais</NamesBlackBorder>
+          {principaisList}
+          {acompanhamentosList.length > 0 && (
+            <>
+              <NamesBlackBorder>Acompanhamentos</NamesBlackBorder>
+              {acompanhamentosList}
+            </>
+          )}
+          <NamesBlackBorder>Bebidas</NamesBlackBorder>
+          {bebidasList}
+          <Separator heigth={"10px"}/>
+        </RestDetailContainer>
+      </div>
+    </>
   );
 }
