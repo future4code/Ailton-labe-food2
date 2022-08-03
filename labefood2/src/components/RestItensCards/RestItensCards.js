@@ -3,8 +3,13 @@ import Comida from "../../assets/comidaburguer.png";
 import { ItemCard, ItemImg, DescriptionItemContain, ItemNameContain, NamesGreen, QttContainer, NamesBlack, AddButton} from "./styled";
 
 const RestItensCards = () => {
+
+/*   const onClickRest = (item) => {
+    goToRestDetail(navigate, item?.id);
+  }; */
+
   return (
-    <ItemCard>
+    <ItemCard /* onClick={()=>{onClickRest(item)}} */>
       <ItemImg src={Comida} alt="Algo" />
       <DescriptionItemContain>
         <ItemNameContain>

@@ -21,10 +21,13 @@ export const InputStyled = styled.input`
   height: 56px;
   border-radius: 2px;
   border: 1px solid ${greyish};
+ padding: 16px;
+ justify-content: space-between;
 `
 export const PageTitle = styled.p`
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   letter-spacing: -0.39px;
-  color:${black}
+  color:${black};
+  margin-top: 28px;
 `

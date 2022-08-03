@@ -7,6 +7,8 @@ import { NewInput, FilterContainer, Filter } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export default function HomePage() {
+
+
   useProtectedPage()
   return (
     <div>
@@ -16,9 +18,9 @@ export default function HomePage() {
       <Separator height={"20px"} />
       <FilterContainer>
         <Filter>Burguer</Filter>
-        <Filter>Asiatica</Filter>
+        <Filter>Asiática</Filter>
         <Filter>Massas</Filter>
-        <Filter>Saudavel</Filter>
+        <Filter>Saudável</Filter>
         <Filter>Churrasco</Filter>
       </FilterContainer>
       <CardHome />
