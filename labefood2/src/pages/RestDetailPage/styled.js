@@ -44,3 +44,6 @@ padding-top: 12px;
 padding-bottom: 8px;
 `;
 
+export const Footer = styled.div`
+height: 10px;
+`

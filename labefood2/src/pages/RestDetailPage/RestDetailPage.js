@@ -10,6 +10,7 @@ import {
   ContainerRest,
   NamesBlackBorder,
   ContainerImg,
+  Footer
 } from "./styled";
 import { useParams } from "react-router-dom";
 import { AddCart } from "../../components/AddCart/AddCart";
@@ -77,7 +78,7 @@ console.log(details);
             <p>{Rest[0]?.category}</p>
             <DivText>
               <p>05 - {Rest[0]?.deliveryTime} min</p>
-              <p>Frete R$ {Rest[0]?.shipping}</p>
+              <p>Frete R$ {Rest[0]?.shipping},00</p>
             </DivText>
             <p>{Rest[0]?.address}</p>
           </ContainerRest>
@@ -92,6 +93,7 @@ console.log(details);
           <NamesBlackBorder>Bebidas</NamesBlackBorder>
           {bebidasList}
           <Separator heigth={"10px"}/>
+          <Footer></Footer>
         </RestDetailContainer>
       </div>
     </>
