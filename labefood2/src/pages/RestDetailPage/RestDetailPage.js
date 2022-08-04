@@ -19,18 +19,19 @@ import { Separator } from "../../styled";
 
 export default function RestDetailPage({ item }) {
   //useProtectedPage()
-  const { setAdd, quantity, restaurantsArray } = useContext(GlobalContext);
+  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts } =
+    useContext(GlobalContext);
   const params = useParams();
-  const [details, setDetails] = useState([]);
+  /*  const [details, setDetails] = useState([]); */
   useEffect(() => {
-    getRestaurantDetail(`${params.id}`, setDetails);
+    getRestaurantDetail(`${params.id}`, setOptionProducts);
   }, []);
-  
+
   const Rest = restaurantsArray?.filter((item) => {
     return item.id === params.id;
   });
 
-  const principaisList = details
+  const principaisList = optionProducts
     ?.filter(
       (item) => item.category !== "Acompanhamento" && item.category !== "Bebida"
     )
@@ -41,11 +42,11 @@ export default function RestDetailPage({ item }) {
         key={item.id}
         item={item}
         Rest={Rest}
-        details={details}
+        details={optionProducts}
       />
     ));
 
-  const acompanhamentosList = details
+  const acompanhamentosList = optionProducts
     ?.filter((item) => item.category === "Acompanhamento")
     .map((item) => (
       <RestItensCards
@@ -54,11 +55,11 @@ export default function RestDetailPage({ item }) {
         key={item.id}
         item={item}
         Rest={Rest}
-        details={details}
+        details={optionProducts}
       />
     ));
 
-  const bebidasList = details
+  const bebidasList = optionProducts
     ?.filter((item) => item.category === "Bebida")
     .map((item) => (
       <RestItensCards
@@ -67,12 +68,12 @@ export default function RestDetailPage({ item }) {
         key={item.id}
         item={item}
         Rest={Rest}
-        details={details}
+        details={optionProducts}
       />
     ));
 
-  console.log(params.id);//retorna o id do restaurante (1)//
-  console.log(Rest) //retorna array com o objeto do rest dentro//
+  console.log(params.id); //retorna o id do restaurante (1)//
+  console.log(Rest); //retorna array com o objeto do rest dentro//
   return (
     <>
       <AddCart />
@@ -102,6 +103,7 @@ export default function RestDetailPage({ item }) {
           {bebidasList}
           <Separator heigth={"10px"}/>
           <Footer></Footer>
+
         </RestDetailContainer>
       </div>
     </>

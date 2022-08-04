@@ -14,18 +14,12 @@ import {
 } from "./styled";
 
 const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
-  const { cart, setCart, pedido } = useContext(GlobalContext);
-  //  const quantidade =[... quantidade,
-  //   {id:key, qty:quantity}
-  //  ]
+  const {
+    setOrderId,
+    cart
+  } = useContext(GlobalContext);
 
-  const AddCart = () => {
-    const produtos = details.filter((produto) => {
-      return produto.id === item.id;
-    });
-    const CartCopy = [...cart, produtos];
-    setCart(CartCopy);
-  };
+  const isOnCart = cart.filter((product) => product.id === item.id)
 
   return (
     <ItemCard>
@@ -33,15 +27,21 @@ const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
       <DescriptionItemContain>
         <ItemNameContain>
           <NamesGreen>{item.name}</NamesGreen>
-          <QttContainer>{quantity}</QttContainer>
+          {isOnCart && <QttContainer>{isOnCart.quantity}</QttContainer>}
         </ItemNameContain>
         <DescriptionContainer>
           <p>{item.description}</p>
         </DescriptionContainer>
         <ItemNameContain>
           <NamesBlack>R${item.price}</NamesBlack>
-          <AddButton onClick={() => {setAdd(true)
-          AddCart()}}>Adicionar</AddButton>
+          <AddButton
+            onClick={() => {
+              setOrderId(item.id);
+              setAdd(true);
+            }}
+          >
+            Adicionar
+          </AddButton>
         </ItemNameContain>
       </DescriptionItemContain>
     </ItemCard>
