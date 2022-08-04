@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import HistoryCard from "../../components/HistoryCard/HistoryCard";
@@ -11,18 +11,21 @@ import {
   HistoryContainter,
   InternalContainer,
   PencilContainer,
+  ButtonLogout
 } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { goToEditProfile, goToEditAddress } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import { Profile, getOrderHistory } from "../../services/requests";
 import { Separator } from "../../styled";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export default function UserProfilePage() {
   // useProtectedPage();
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
+  const { logout } = useContext(GlobalContext);
 
   useEffect(() => {
     Profile(setUser);
@@ -41,6 +44,9 @@ export default function UserProfilePage() {
           <p>{user.name}</p>
           <p>{user.email}</p>
           <p>{user.cpf}</p>
+          <Separator />
+       {/* <ButtonLogout onClick={ logout(navigate) }>logout</ButtonLogout> */}
+          <Separator height={"30px"}/> 
         </InternalContainer>
         <PencilContainer
           onClick={() => goToEditProfile(navigate)}
@@ -71,6 +77,7 @@ export default function UserProfilePage() {
           historyList
         )}
       </HistoryContainter>
+     
       <Footer />
     </div>
   );

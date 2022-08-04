@@ -60,6 +60,7 @@ export default function EditProfilePage() {
         <Separator height={"16px"} />
         <Button type={"submit"} title={"Salvar"} />
       </FormContainer>
+     
     </div>
   );
 }
