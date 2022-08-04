@@ -14,6 +14,8 @@ export const GlobalState = (props) => {
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useState([]);
   const [pedido, setPedido]= useState(false);
+  const [currentOrder, setCurrentOrder] = useState([]);
+  const [optionProducts, setOptionProducts] = useState([])
   
   const logout = (navigate) => {
     localStorage.setItem("token", "");
@@ -24,7 +26,6 @@ export const GlobalState = (props) => {
     getRestaurants(setRestaurantsArray);
   }, [token]);
 
-
   const values = {
     logout,
     restaurantsArray,
@@ -34,11 +35,16 @@ export const GlobalState = (props) => {
     setRestId,
     restId,
     orderId,
+    setOrderId,
     quantity,
     cart,
     setCart,
     pedido,
-    setPedido
+    setPedido,
+    currentOrder, 
+    setCurrentOrder,
+    optionProducts, 
+    setOptionProducts
   };
 
   return <Provider value={values}>{props.children}</Provider>;
