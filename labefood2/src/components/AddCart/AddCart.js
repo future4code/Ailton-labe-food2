@@ -8,8 +8,10 @@ import {
   Select,
   AddCartTitle,
   TitleSelect,
+  GoBack
 } from "./styled";
 import { numbers } from "../../constants/numbers";
+import seta from "../../assets/seta.svg"
 
 export const AddCart = () => {
   const {
@@ -52,6 +54,7 @@ export const AddCart = () => {
         <ContainerAddCart>
           <ContainerBox>
             <Separator height={"43px"} />
+            <GoBack src={seta} onClick={()=>setAdd(false)}/>
             <TitleSelect>Selecione a quantidade desejada</TitleSelect>
             <Separator height={"31px"} />
             <Select value={quantity} name="quantity" onChange={onChangeValue}>
@@ -75,7 +78,8 @@ export const AddCart = () => {
               </AddCartTitle>
             </DivAdd>
           </ContainerBox>
-        </ContainerAddCart>
+        
+        </ContainerAddCart >
       )}
     </>
   );

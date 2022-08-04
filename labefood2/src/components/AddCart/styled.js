@@ -43,3 +43,8 @@ font-size:16px;
 letter-spacing:-0.39px;
 
 `
+export const GoBack = styled.img`
+position:absolute;
+margin-top:17px;
+margin-right:280px;
+`
