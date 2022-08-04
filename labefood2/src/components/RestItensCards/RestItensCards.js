@@ -14,12 +14,9 @@ import {
 } from "./styled";
 
 const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
-  const {
-    setOrderId,
-    cart
-  } = useContext(GlobalContext);
+  const { setOrderId, cart } = useContext(GlobalContext);
 
-  const isOnCart = cart.filter((product) => product.id === item.id)
+  const isOnCart = cart.filter((product) => product.id === item.id);
 
   return (
     <ItemCard>
@@ -33,7 +30,12 @@ const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
           <p>{item.description}</p>
         </DescriptionContainer>
         <ItemNameContain>
-          <NamesBlack>R${item.price}</NamesBlack>
+          <NamesBlack>
+            R$
+            {item.price.toString().includes(".")?
+            item.price.toString().replace(".", ","):
+            `${item.price.toString()},00`}
+          </NamesBlack>
           <AddButton
             onClick={() => {
               setOrderId(item.id);
