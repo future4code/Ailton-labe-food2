@@ -21,22 +21,25 @@ export default function HomePage() {
   const { restaurantsArray } = useContext(GlobalContext);
   const [selectCategory, setSelectCategory] = useState("");
 
+  const onClickCategory = (e) => {
+    setSelectCategory(e);
+  };
+
   const restaurantsListCategory = restaurantsArray?.map((item) => {
     return (
       <Filter
         key={item.id}
         item={item.category}
         onClick={() => {
-          onClickCategory(item.category);
+        onClickCategory(item.category);
         }}
+        selectCategory={selectCategory}
       >
         {item.category}
       </Filter>
     );
   });
-  const onClickCategory = (e) => {
-    setSelectCategory(e);
-  };
+
   console.log(selectCategory);
   const restaurantsList = restaurantsArray
     ?.filter((item) => {

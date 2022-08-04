@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { InputStyled } from "../../styled";
+import { midGreen} from "../../constants/color";
 
 export const HomeContainer= styled.div`
 width:100%;
@@ -22,7 +23,7 @@ export const Filter = styled.span`
   display: flex;
   margin: 10px;
   max-width: 87px;
-  color: black;
+  color: ${(props) => props.selectCategory === props.item ? `${midGreen}` : 'black'};
   justify-content: space-evenly;
   align-items: center;
 `;
