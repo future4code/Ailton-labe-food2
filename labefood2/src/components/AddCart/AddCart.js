@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 import { Separator } from "../../styled";
 import {
@@ -11,11 +11,11 @@ import {
 } from "./styled";
 import {numbers} from "../../constants/numbers"
 export const AddCart = () => {
-  const {setAdd, add, setQuantity, quantity} = useContext(GlobalContext)
+  const {setAdd, add, setQuantity, quantity, setPedido, pedido} = useContext(GlobalContext)
   const onChangeValue =(event)=>{
     setQuantity(event.target.value)
   }
-  console.log(quantity)
+ console.log(pedido)
   return (
     <>
     {add && (<ContainerAddCart >
@@ -31,7 +31,8 @@ export const AddCart = () => {
       </Select>
       <Separator height={"28px"} />
       <DivAdd>
-        <AddCartTitle onClick={()=>setAdd(false)}>ADICIONAR AO CARRINHO</AddCartTitle>
+        <AddCartTitle onClick={()=>{setAdd(false)
+        setPedido(true)}}>ADICIONAR AO CARRINHO</AddCartTitle>
       </DivAdd>
     </ContainerBox>
   </ContainerAddCart>)}
