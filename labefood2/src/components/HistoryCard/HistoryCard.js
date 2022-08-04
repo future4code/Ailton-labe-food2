@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardContainer, DataSentense, NamesGreen } from "./styled";
 
-const HistoryCard = () => {
+const HistoryCard = ({item}) => {
   return (
     <CardContainer>
         <NamesGreen>Nome do Restaurante</NamesGreen>

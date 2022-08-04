@@ -40,7 +40,7 @@ export const AddAddress = (body, goTo, navigate, clear) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      console.log("Endereço adicionado")
+      console.log("Endereço adicionado");
       alert("Endereço adicionado");
       goTo(navigate);
       clear();
@@ -77,7 +77,7 @@ export const Profile = (setData) => {
     });
 };
 
-export const UpdateProfile = (body,goTo,navigate) => {
+export const UpdateProfile = (body, goTo, navigate) => {
   axios
     .put(`${BASE_URL}profile`, body, {
       headers: { auth: token },
@@ -144,12 +144,13 @@ export const ActiveOrder = () => {
     });
 };
 
-export const OrderHistory = () => {
+export const getOrderHistory = (setData) => {
   axios
     .get(`${BASE_URL}orders/history`, {
       headers: { auth: token },
     })
     .then((res) => {
+      setData(res.data.orders);
       console.log("Deu certo");
     })
     .catch((err) => {
