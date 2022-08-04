@@ -12,6 +12,8 @@ export const GlobalState = (props) => {
   const [restId, setRestId] = useState("");
   const [orderId, setOrderId] = useState("");
   const [quantity, setQuantity] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [pedido, setPedido]= useState(false);
   
   const logout = (navigate) => {
     localStorage.setItem("token", "");
@@ -33,6 +35,10 @@ export const GlobalState = (props) => {
     restId,
     orderId,
     quantity,
+    cart,
+    setCart,
+    pedido,
+    setPedido
   };
 
   return <Provider value={values}>{props.children}</Provider>;

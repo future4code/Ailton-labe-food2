@@ -24,7 +24,11 @@ export default function RestDetailPage({ item }) {
   useEffect(() => {
     getRestaurantDetail(`${params.id}`, setDetails);
   }, []);
-console.log(details);
+  
+  const Rest = restaurantsArray?.filter((item) => {
+    return item.id === params.id;
+  });
+
   const principaisList = details
     ?.filter(
       (item) => item.category !== "Acompanhamento" && item.category !== "Bebida"
@@ -35,6 +39,8 @@ console.log(details);
         setAdd={setAdd}
         key={item.id}
         item={item}
+        Rest={Rest}
+        details={details}
       />
     ));
 
@@ -46,6 +52,8 @@ console.log(details);
         setAdd={setAdd}
         key={item.id}
         item={item}
+        Rest={Rest}
+        details={details}
       />
     ));
 
@@ -57,13 +65,13 @@ console.log(details);
         setAdd={setAdd}
         key={item.id}
         item={item}
+        Rest={Rest}
+        details={details}
       />
     ));
 
-  const Rest = restaurantsArray?.filter((item) => {
-    return item.id === params.id;
-  });
-  console.log(acompanhamentosList);
+  console.log(params.id);//retorna o id do restaurante (1)//
+  console.log(Rest) //retorna array com o objeto do rest dentro//
   return (
     <>
       <AddCart />
