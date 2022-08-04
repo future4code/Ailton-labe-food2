@@ -11,7 +11,7 @@ border-radius: 8px;
 export const ItemNameContain = styled.div`
 display: flex;
 border-radius: 0 8px 0 0;
-height: 33px;
+height: fit-content;
 width: 215px;
 justify-content: space-between;
 color: ${midGreen};
