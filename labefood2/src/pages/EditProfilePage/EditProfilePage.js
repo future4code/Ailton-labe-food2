@@ -3,19 +3,24 @@ import Header from "../../components/Header/Header";
 import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import { InputStyled, Separator, FormContainer } from "../../styled";
+import {
+  InputStyled,
+  Separator,
+  FormContainer,
+  LabelStyled,
+} from "../../styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { UpdateProfile } from "../../services/requests";
 import { goToUserProfile } from "../../routes/coordinator";
 
 export default function EditProfilePage() {
-  useProtectedPage()
+  useProtectedPage();
   const [form, onChange, clear] = useForm({ name: "", email: "", cpf: "" });
   const navigate = useNavigate();
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-     UpdateProfile(form,goToUserProfile,navigate);
+    UpdateProfile(form, goToUserProfile, navigate);
   };
   return (
     <div>
@@ -30,6 +35,7 @@ export default function EditProfilePage() {
           type={"text"}
           required
         />
+        <LabelStyled>Nome*</LabelStyled>
         <Separator height={"16px"} />
         <InputStyled
           placeholder="email@email.com"
@@ -39,6 +45,7 @@ export default function EditProfilePage() {
           type={"email"}
           required
         />
+        <LabelStyled>E-mail*</LabelStyled>
         <Separator height={"16px"} />
         <InputStyled
           placeholder="000.000.000-00"
@@ -48,6 +55,7 @@ export default function EditProfilePage() {
           type={""}
           required
         />
+        <LabelStyled>CPF*</LabelStyled>
         <Separator height={"16px"} />
         <Separator height={"16px"} />
         <Button type={"submit"} title={"Salvar"} />

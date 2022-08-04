@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import { InputStyled, Separator, FormContainer } from "../../styled";
+import {
+  InputStyled,
+  Separator,
+  FormContainer,
+  LabelStyled,
+} from "../../styled";
 import { goToSignUpAdress } from "../../routes/coordinator";
 import { Singup } from "../../services/requests";
 
@@ -13,13 +18,21 @@ export default function SignUpForm() {
     cpf: "",
     password: "",
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
+ const onChangeConfirm = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
   const onSubmitForm = (event) => {
-    event.preventDefault();
-    console.log(form);
-    Singup(form, goToSignUpAdress, navigate, clear);
-    // tem que colocar o axios do signup recebendo (form,clear,navigate)
+    if (form.password === confirmPassword) {
+      event.preventDefault();
+      console.log(form);
+      Singup(form, goToSignUpAdress, navigate, clear);
+    } else {
+      window.alert("As senhas devem ser a mesma");
+    }
   };
 
   return (
@@ -32,6 +45,7 @@ export default function SignUpForm() {
         type={"text"}
         required
       />
+      <LabelStyled>Nome*</LabelStyled>
       <Separator height={"16px"} />
       <InputStyled
         placeholder="email@email.com"
@@ -42,6 +56,7 @@ export default function SignUpForm() {
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
         required
       />
+      <LabelStyled>E-mail*</LabelStyled>
       <Separator height={"16px"} />
       <InputStyled
         placeholder="000.000.000-00"
@@ -51,6 +66,7 @@ export default function SignUpForm() {
         pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
         required
       />
+      <LabelStyled>CPF*</LabelStyled>
       <Separator height={"16px"} />
       <InputStyled
         placeholder="Mínimo 6 caracteres"
@@ -61,8 +77,18 @@ export default function SignUpForm() {
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
         required
       />
+      <LabelStyled>Senha*</LabelStyled>
       <Separator height={"16px"} />
-      <InputStyled placeholder="tenho que ver como fazer isso" />
+      <InputStyled
+        placeholder="Confirme a senha a senha anterior"
+        name={"confirmPassword"}
+        value={confirmPassword}
+        onChange={onChangeConfirm}
+        type="password"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        required
+      />
+      <LabelStyled>Confirmar*</LabelStyled>
       <Separator height={"16px"} />
       <Button
         onClick={() => goToSignUpAdress(navigate)}
