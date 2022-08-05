@@ -56,7 +56,7 @@ export default function HomePage() {
   const onChangeQuery = (event) => {
     setQuery(event.target.value);
   };
-
+console.log("home", orderObjeto.order)
   return (
     <>
       {orderObjeto?.order !== null && <ActiveOrder />}
