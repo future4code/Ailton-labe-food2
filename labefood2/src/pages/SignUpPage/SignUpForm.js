@@ -19,7 +19,14 @@ export default function SignUpForm() {
     password: "",
   });
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setShowPassword(!showPassword);
+  };
 
  const onChangeConfirm = (event) => {
     setConfirmPassword(event.target.value);
@@ -73,7 +80,7 @@ export default function SignUpForm() {
         name={"password"}
         value={form.password}
         onChange={onChange}
-        type="password"
+        type= {showPassword ? "text" : "password"}
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
         required
       />
@@ -84,7 +91,7 @@ export default function SignUpForm() {
         name={"confirmPassword"}
         value={confirmPassword}
         onChange={onChangeConfirm}
-        type="password"
+        type= {showPassword ? "text" : "password"}
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
         required
       />
