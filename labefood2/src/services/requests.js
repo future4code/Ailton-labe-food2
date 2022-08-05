@@ -117,16 +117,22 @@ export const getRestaurantDetail = (id, setData) => {
     });
 };
 
-export const PlaceOrder = (id, body) => {
+export const PlaceOrder = (id, sendOrder, payMethod) => {
+  const body = {
+    "products": sendOrder,
+    "paymentMethod": payMethod
+  }
   axios
     .post(`${BASE_URL}restaurants/${id}/order`, body, {
       headers: { auth: token },
     })
     .then((res) => {
+      console.log(res);
       console.log("Deu fome");
     })
     .catch((err) => {
-      console.log("Deu erro");
+      console.log(err);
+      alert('Algo deu errado. Verifique se escolheu uma opção de pagamento!')
     });
 };
 

@@ -7,6 +7,16 @@ export const CartContainer = styled.div`
   align-items: center;
   width: 100%;
   padding-top: 0ch;
+  overflow: hidden;
+`;
+export const ContainerScroll = styled.div`
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 93.7%;
+  padding-top: 0ch;
 `;
 export const StyleAddress = styled.div`
   background-color: #eeeeee;
@@ -30,8 +40,8 @@ export const RestInfo = styled.div`
   display: flex;
   flex-direction: column;
   width: 328px;
-  gap:8px;
-  color: ${greyish}
+  gap: 8px;
+  color: ${greyish};
 `;
 export const PriceStyle = styled.div`
   display: flex;
@@ -91,7 +101,7 @@ export const ButtonCart = styled.button`
   border-radius: 2px;
   border: none;
   margin-top: 0;
-  position: fixed;
+  /*   position: fixed; */
   bottom: 65px;
 `;
 export const NamesGreen = styled.p`

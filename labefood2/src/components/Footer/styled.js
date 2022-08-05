@@ -9,28 +9,25 @@ background-color: #fff;
 display: flex;
 justify-content: space-between;
 width: 360px;
-height: 49px;
+height: 6.3%;
 align-items: center;
 position: fixed;
 bottom: 0;
-`
+`;
 export const HomeIconContainer = styled.div`
 width: 120px;
 height: 49px;
 padding: 11px 46px 11px 47px;
-`
-
+`;
 export const HomeIcon = styled.img`
 height: 27px;
 width: 27px;
-`
-
+`;
 export const CartIconContainer = styled.div`
 width: 120px;
 height: 49px;
 padding: 10px 46px 10px 47px;
-`
-
+`;
 export const CartIcon = styled.img`
 height: 27px;
 width: 27px;

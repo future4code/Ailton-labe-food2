@@ -80,6 +80,9 @@ export default function HomePage() {
         <CategoryListFilter>{restaurantsListCategory}</CategoryListFilter>
       </FilterContainer>
       {restaurantsList}
+      <br></br>
+      <br></br>
+      <br></br>
       <Footer />
     </HomeContainer>
   );
