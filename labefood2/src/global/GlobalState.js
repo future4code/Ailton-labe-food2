@@ -27,6 +27,7 @@ export const GlobalState = (props) => {
     const getLocal = JSON.parse(localStorage.getItem("cart"));
     setCart(getLocal ? getLocal : []);
   }
+
   if (orderRestau === "") {
     const getLocal = JSON.parse(localStorage.getItem("rest"));
     setOrderRestau(getLocal ? getLocal : []);

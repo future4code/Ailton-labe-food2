@@ -15,7 +15,7 @@ import {
 
 //Pegar do localStorage - fazer reload?
 const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
-  const { setOrderId, cart, setOrderRestau, setCart } = useContext(GlobalContext);
+  const { setOrderId, cart, setOrderRestau, setCart, orderRestau } = useContext(GlobalContext);
 
   const isOnCart = cart?.filter((product) => product.id === item.id);
 
