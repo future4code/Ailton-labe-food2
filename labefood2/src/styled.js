@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { greyish, black } from "./constants/color";
+import styled from 'styled-components';
+import { greyish, black } from './constants/color';
 
 export const Separator = styled.div`
   height: ${(props) => props.height};
@@ -15,6 +15,12 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+export const ErrorPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px;
 `;
 export const InputStyled = styled.input`
   width: 328px;
@@ -38,7 +44,7 @@ export const LabelStyled = styled.label`
 `;
 export const PageTitle = styled.p`
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   letter-spacing: -0.39px;
   color: ${black};
   margin-top: 28px;
