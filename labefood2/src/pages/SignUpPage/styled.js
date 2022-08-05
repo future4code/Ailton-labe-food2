@@ -16,7 +16,10 @@ export const InputPContainer = styled.div`
   border: 1px solid ${greyish};
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 export const ImgPassword = styled.img`
   margin-right: 16px;
+  width: 24px;
+  height: 24px;
 `;
