@@ -21,19 +21,25 @@ import {
   NamesGreen,
   EmptyCart,
   RestInfo,
-  orderRestau,
+  
 } from "./styled";
 
 export default function CartPage() {
   //useProtectedPage()
   const [user, setUser] = useState({});
-  const { orderRestau, cart, optionProducts, setAdd } =
+  const { orderRestau, cart, optionProducts, setAdd, 
+    setOrderRestau } =
     useContext(GlobalContext);
 
   useEffect(() => {
     Profile(setUser);
   }, []);
 
+  let ShippingValue = 0
+if(cart?.length !== 0){
+  ShippingValue = orderRestau[0]?.shipping
+}
+ 
   console.log(cart);
   console.log(orderRestau);
 
@@ -44,7 +50,7 @@ export default function CartPage() {
     for (let product of cart) {
       totalValue += product.price * product.quantity;
     }
-    let totalWithShipping = totalValue + orderRestau[0]?.shipping;
+    let totalWithShipping = totalValue + ShippingValue;
     return totalWithShipping;
   };
 
@@ -84,7 +90,7 @@ export default function CartPage() {
       )}
       <PriceStyle>
         <br></br>
-        <Span2>Frete: R${orderRestau[0]?.shipping},00</Span2>
+        <Span2>Frete: R${ShippingValue},00</Span2>
         <SubTotalDiv>
           <span>SUBTOTAL</span>
           <NamesGreen>

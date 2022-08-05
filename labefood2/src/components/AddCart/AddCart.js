@@ -25,12 +25,15 @@ export const AddCart = () => {
     pedido,
     optionProducts,
     orderId,
+    setOrderRestau,
+    
   } = useContext(GlobalContext);
 
   const onChangeValue = (event) => {
     setQuantity(event.target.value);
   };
 
+ 
   const AddIdButton = () => {
     const [produtoA] = optionProducts.filter(
       (produto) => produto.id === orderId
@@ -44,6 +47,7 @@ export const AddCart = () => {
       }
     }  */
   };
+
 
  
   return (
