@@ -127,8 +127,7 @@ export const PlaceOrder = (id, sendOrder, payMethod) => {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log(res);
-      console.log("Deu fome");
+      alert("Seu pedido foi feito com sucesso!:)")
     })
     .catch((err) => {
       console.log(err);
@@ -136,13 +135,14 @@ export const PlaceOrder = (id, sendOrder, payMethod) => {
     });
 };
 
-export const ActiveOrder = () => {
+export const ActiveOrder = (setData) => {
   axios
     .get(`${BASE_URL}active-order`, {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("Pedido localizado");
+      setData(res.data)
+
     })
     .catch((err) => {
       console.log("deu erro");

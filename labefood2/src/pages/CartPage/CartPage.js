@@ -22,6 +22,8 @@ import {
   EmptyCart,
   RestInfo,
   ContainerScroll,
+  DivPedidoAndamento,
+  ContainerDiv
 } from "./styled";
 import { Separator } from "../../styled";
 
@@ -29,7 +31,7 @@ export default function CartPage() {
   //useProtectedPage()
   const [user, setUser] = useState({});
   const [payMethod, setPayMethod] = useState("");
-  const { orderRestau, cart } = useContext(GlobalContext);
+  const { orderRestau, cart, orderObjeto } = useContext(GlobalContext);
 
   useEffect(() => {
     Profile(setUser);
@@ -64,7 +66,8 @@ export default function CartPage() {
   console.log(orderRestau[0]?.id);
 
   return (
-    <CartContainer>
+    <>
+    {orderObjeto?.order === null && (<CartContainer>
       <ContainerScroll>
         <Header type={"semSeta"} width={"135px"} title={"Meu carrinho"} />
         <StyleAddress>
@@ -108,8 +111,8 @@ export default function CartPage() {
             <input
               type="radio"
               id="money"
-              name="dinheiro"
-              value="dinheiro"
+              name="money"
+              value="money"
               onChange={() => {
                 setPayMethod("money");
               }}
@@ -142,7 +145,10 @@ export default function CartPage() {
         <br></br>
         <Separator heigth="100px" />
       </ContainerScroll>
+      
       <Footer />
-    </CartContainer>
+    </CartContainer>)}
+    {orderObjeto?.order !== null && (<ContainerScroll><DivPedidoAndamento><p>Você já tem um pedido em andamento</p></DivPedidoAndamento><Footer /></ContainerScroll>)}
+    </>
   );
 }

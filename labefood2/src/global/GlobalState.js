@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { goToLogin } from "../routes/coordinator";
 import { GlobalContext } from "./GlobalContext";
 import { useRequest } from "../hooks/useRequest";
-import { getRestaurants } from "../services/requests";
+import { ActiveOrder, getRestaurants } from "../services/requests";
 import { token } from "../constants/token";
 
 export const GlobalState = (props) => {
@@ -17,6 +17,7 @@ export const GlobalState = (props) => {
   const [pedido, setPedido] = useState(false);
   const [currentOrder, setCurrentOrder] = useState([]);
   const [optionProducts, setOptionProducts] = useState([]);
+  const [orderObjeto, setOrderObjeto] = useState("")
 
   const logout = (navigate) => {
     localStorage.clear()
@@ -33,13 +34,15 @@ export const GlobalState = (props) => {
     setOrderRestau(getLocal ? getLocal : []);
   }
 
-  useEffect(() => {
-    getRestaurants(setRestaurantsArray);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("rest", JSON.stringify(orderRestau));
-  }, [token, cart, orderRestau]);
+    useEffect(() => {
+      ActiveOrder(setOrderObjeto)
+      getRestaurants(setRestaurantsArray);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("rest", JSON.stringify(orderRestau));
+    }, [token, cart, orderRestau]);
+  
 
-  const values = {
+    const values = {
     logout,
     restaurantsArray,
     setAdd,
@@ -60,6 +63,7 @@ export const GlobalState = (props) => {
     setOptionProducts,
     orderRestau,
     setOrderRestau,
+    orderObjeto
   };
 
   return <Provider value={values}>{props.children}</Provider>;

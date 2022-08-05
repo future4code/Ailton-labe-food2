@@ -12,7 +12,9 @@ export const ContainerActiveOrder = styled.div`
   color: ${black};
   display: flex;
   align-items: center;
-`;
+  position:fixed;
+  margin-top:483px;
+`
 
 export const ContainerOrder = styled.div`
 width: 256px;
