@@ -49,6 +49,10 @@ font-size: 12px;
 letter-spacing: -0.29px;
 background-color: white;
 `;
+export const DeleteButton = styled(AddButton)`
+color: red;
+border: solid 1px red;
+`;
 export const QttContainer = styled.div`
 width: 33px;
 height: 33px;

@@ -10,12 +10,18 @@ import {
   NamesBlack,
   AddButton,
   DescriptionContainer,
+  DeleteButton,
 } from "./styled";
 
+//Pegar do localStorage - fazer reload?
 const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
   const { setOrderId, cart, setOrderRestau } = useContext(GlobalContext);
 
   const isOnCart = cart?.filter((product) => product.id === item.id);
+
+  const deleteFromCart = (item) => {
+    return cart?.filter((product) => product.id !== item.id);
+  };
 
   return (
     <ItemCard>
@@ -39,15 +45,25 @@ const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
               ? item.price.toString().replace(".", ",")
               : `${item.price.toString()},00`}
           </NamesBlack>
-          <AddButton
-            onClick={() => {
-              setOrderRestau(Rest)
-              setOrderId(item.id);
-              setAdd(true);
-            }}
-          >
-            Adicionar
-          </AddButton>
+          {isOnCart?.length === 0 ? (
+            <AddButton
+              onClick={() => {
+                setOrderRestau(Rest);
+                setOrderId(item.id);
+                setAdd(true);
+              }}
+            >
+              Adicionar
+            </AddButton>
+          ) : (
+            <DeleteButton
+              onClick={() => {
+                deleteFromCart(item);
+              }}
+            >
+              Remover
+            </DeleteButton>
+          )}
         </ItemNameContain>
       </DescriptionItemContain>
     </ItemCard>
