@@ -62,8 +62,8 @@ export default function CartPage() {
   for (let item1 of cart) {
     sendOrder.push({ id: item1.id, quantity: item1.quantity });
   }
-  console.log(sendOrder);
-  console.log(orderRestau[0]?.id);
+  console.log(orderObjeto.order);
+ 
 
   return (
     <>

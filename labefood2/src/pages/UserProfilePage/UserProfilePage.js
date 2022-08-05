@@ -83,6 +83,9 @@ console.log(orderHistory);
         ) : (
           historyList
         )}
+        <br></br>
+        <br></br>
+        <br></br>
       </HistoryContainter>
      
       <Footer />
