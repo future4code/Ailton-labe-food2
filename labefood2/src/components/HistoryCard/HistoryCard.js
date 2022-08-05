@@ -3,20 +3,21 @@ import { CardContainer, DataSentense, NamesGreen } from "./styled";
 
 const HistoryCard = ({ item }) => {
 
+
+  const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
   const convertDate = (timestamp) => {
     let time = new Date(timestamp)
     let day = time.getDate().toString().padStart(2, '0')
-    let month = (time.getMonth() + 1).toString().padStart(2, '0')
+    let month = meses[time.getMonth()]
     let year = time.getFullYear()
-    `${day} ${month} ${year}`;
+    return `${day} de ${month} de ${year}`;
   };
-
-  {/* <DescriptionDate>{convertDate(history.createdAt)}</DescriptionDate> */}
 
   return (
     <CardContainer>
       <NamesGreen>{item.restaurantName}</NamesGreen>
-      <DataSentense>05 de agosto de 2022</DataSentense>
+      <DataSentense>{convertDate(item.createdAt)}</DataSentense>
       <p>
         <strong>
           SUBTOTAL R$
