@@ -24,6 +24,7 @@ width: 360px;
 padding: 16px;
 display: flex;
 justify-content: space-between;
+margin-top: 10px;
 `;
 export const Delivery = styled.span`
 display: flex;
@@ -42,3 +43,9 @@ padding-top: 12px;
 padding-bottom: 8px;
 border-bottom: 1px solid black;
 `;
+
+export const ButtonLogout = styled.button`
+border: none;
+padding: 2px;
+margin-bottom: 10px;
+`
