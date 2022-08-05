@@ -1,5 +1,6 @@
 export const goToLogin = (navigate)=>{
   navigate("/login")
+  window.location.reload();
 }
 export const goToSignUp = (navigate)=>{
   navigate("/signup")
@@ -9,6 +10,7 @@ export const goToSignUpAdress = (navigate)=>{
 }
 export const goToHome = (navigate)=>{
   navigate("/home")
+  window.location.reload();
 }
 export const goToRestDetail = (navigate,id)=>{
   navigate(`/restaurant/${id}`)
