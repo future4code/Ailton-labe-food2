@@ -21,6 +21,7 @@ import {
   NamesGreen,
   EmptyCart,
   RestInfo,
+  orderRestau
 } from "./styled";
 
 export default function CartPage() {
@@ -34,6 +35,18 @@ export default function CartPage() {
   }, []);
 
   console.log(cart);
+  console.log(orderRestau);
+
+//Calcular valor total
+
+  const Total = () => {
+  let totalValue = 0;
+  for (let product of cart) {
+    totalValue += product.price * product.quantity;
+  }
+  let totalWithShipping = totalValue + orderRestau[0]?.shipping;
+  return totalWithShipping
+};
 
   const cartList = cart?.map((itemCart) => {
     <RestItensCards
@@ -65,11 +78,15 @@ export default function CartPage() {
         <br></br>
         {cartList}
         <br></br>
-        <Span2>Frete: R$0,00</Span2>
+        <Span2>Frete: R${orderRestau[0]?.shipping},00</Span2>
         <SubTotalDiv>
           <span>SUBTOTAL</span>
           <NamesGreen>
-            <strong>R$00,00</strong>
+            <strong>R$            
+            {Total().toString().includes(".")
+              ? Total().toString().replace(".", ",")
+              : `${Total().toString()},00`}
+            </strong>
           </NamesGreen>
         </SubTotalDiv>
       </PriceStyle>
