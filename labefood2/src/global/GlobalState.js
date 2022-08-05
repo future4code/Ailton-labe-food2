@@ -19,7 +19,7 @@ export const GlobalState = (props) => {
   const [optionProducts, setOptionProducts] = useState([])
   
   const logout = (navigate) => {
-    localStorage.setItem("token", "");
+    localStorage.clear()
     goToLogin(navigate);
   };
 
