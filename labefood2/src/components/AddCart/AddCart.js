@@ -30,19 +30,20 @@ export const AddCart = () => {
   const onChangeValue = (event) => {
     setQuantity(event.target.value);
   };
-  console.log(pedido);
 
   const AddIdButton = () => {
     const [produtoA] = optionProducts.filter(
       (produto) => produto.id === orderId
     );
-    console.log(produtoA);
     const newProdOrder = { ...produtoA, quantity };
-    console.log(newProdOrder);
     setCart((cart) => [...cart, newProdOrder]);
+    /* let i = 0;
+    for (cartItem of cart){
+      if (cartItem.id !== orderId){
+        setCart((cart) => [...cart, newProdOrder])
+      }
+    }  */
   };
-
-  console.log("cart", cart);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

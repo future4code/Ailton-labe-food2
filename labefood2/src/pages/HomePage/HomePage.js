@@ -14,7 +14,6 @@ import {
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { GlobalContext } from "../../global/GlobalContext";
 
-
 export default function HomePage() {
   //useProtectedPage()
   const [query, setQuery] = useState("");
@@ -40,7 +39,6 @@ export default function HomePage() {
     );
   });
 
-  console.log(selectCategory);
   const restaurantsList = restaurantsArray
     ?.filter((item) => {
       return item.name.toLowerCase().includes(query);
@@ -55,7 +53,6 @@ export default function HomePage() {
     setQuery(event.target.value);
   };
 
-  console.log(query);
   return (
     <HomeContainer>
       <Header title={"FutureEats"} type={"semSeta"} width={"143.5px"} />

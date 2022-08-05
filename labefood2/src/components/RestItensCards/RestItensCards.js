@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
-
 import {
   ItemCard,
   ItemImg,
@@ -13,10 +12,10 @@ import {
   DescriptionContainer,
 } from "./styled";
 
-const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
-  const { setOrderId, cart } = useContext(GlobalContext);
+const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
+  const { setOrderId, cart, setOrderRestau } = useContext(GlobalContext);
 
-  const isOnCart = cart.filter((product) => product.id === item.id);
+  const isOnCart = cart?.filter((product) => product.id === item.id);
 
   return (
     <ItemCard>
@@ -24,7 +23,11 @@ const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
       <DescriptionItemContain>
         <ItemNameContain>
           <NamesGreen>{item.name}</NamesGreen>
-          {isOnCart && <QttContainer>{isOnCart.quantity}</QttContainer>}
+          {isOnCart?.length === 0 ? (
+            <p></p>
+          ) : (
+            <QttContainer>{isOnCart[0].quantity}</QttContainer>
+          )}
         </ItemNameContain>
         <DescriptionContainer>
           <p>{item.description}</p>
@@ -32,12 +35,13 @@ const RestItensCards = ({ item, setAdd, quantity, key, Rest, details }) => {
         <ItemNameContain>
           <NamesBlack>
             R$
-            {item.price.toString().includes(".")?
-            item.price.toString().replace(".", ","):
-            `${item.price.toString()},00`}
+            {item.price.toString().includes(".")
+              ? item.price.toString().replace(".", ",")
+              : `${item.price.toString()},00`}
           </NamesBlack>
           <AddButton
             onClick={() => {
+              setOrderRestau(Rest)
               setOrderId(item.id);
               setAdd(true);
             }}

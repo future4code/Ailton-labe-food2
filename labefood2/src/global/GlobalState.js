@@ -11,6 +11,7 @@ export const GlobalState = (props) => {
   const [add, setAdd] = useState(false);
   const [restId, setRestId] = useState("");
   const [orderId, setOrderId] = useState("");
+  const [orderRestau, setOrderRestau] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useState([]);
   const [pedido, setPedido]= useState(false);
@@ -44,7 +45,9 @@ export const GlobalState = (props) => {
     currentOrder, 
     setCurrentOrder,
     optionProducts, 
-    setOptionProducts
+    setOptionProducts,
+    orderRestau, 
+    setOrderRestau,
   };
 
   return <Provider value={values}>{props.children}</Provider>;
