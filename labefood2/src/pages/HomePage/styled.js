@@ -4,7 +4,7 @@ import { greyish, midGreen } from '../../constants/color';
 
 export const HomeContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: fit-content;
 `;
 export const InputContainer = styled.div`
   display: flex;
