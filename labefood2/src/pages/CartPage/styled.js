@@ -108,3 +108,14 @@ export const NamesGreen = styled.p`
   color: ${midGreen};
   font-size: 16px;
 `;
+
+export const DivPedidoAndamento = styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:5px;
+width:300px;
+height:80px;
+border:solid 1px black;
+margin-top:200px;
+`

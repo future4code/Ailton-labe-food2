@@ -28,7 +28,8 @@ export const InputStyled = styled.input`
   border-radius: 2px;
   border: 1px solid ${greyish};
   padding: 16px;
-  justify-content: space-between;
+  justify-content: space-between; 
+  text-decoration:none;
 `;
 export const LabelStyled = styled.label`
   position: relative;
