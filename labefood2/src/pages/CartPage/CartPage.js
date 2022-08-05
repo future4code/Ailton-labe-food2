@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { Profile } from "../../services/requests";
+import RestItensCards from "../../components/RestItensCards/RestItensCards";
+import { GlobalContext } from "../../global/GlobalContext";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import {
   CartContainer,
@@ -20,34 +23,53 @@ import {
   RestInfo,
 } from "./styled";
 
-
 export default function CartPage() {
-  useProtectedPage()
+  //useProtectedPage()
+  const [user, setUser] = useState({});
+  const { orderRestau, cart, optionProducts, setAdd } =
+    useContext(GlobalContext);
+
+  useEffect(() => {
+    Profile(setUser);
+  }, []);
+
+  console.log(cart);
+
+  const cartList = cart?.map((itemCart) => {
+    <RestItensCards
+      quantity={itemCart.quantity}
+      setAdd={setAdd}
+      key={itemCart.id}
+      item={itemCart}
+      Rest={orderRestau}
+      details={optionProducts}
+    />;
+  });
+
   return (
     <CartContainer>
       <Header type={"semSeta"} width={"135px"} title={"Meu carrinho"} />
       <StyleAddress>
         <Delivery>Endereço de Entrega</Delivery>
-        <span>Rua Alessandra Vieira, 42</span>
+        <span>{user.address}</span>
       </StyleAddress>
       {/* FAZER TERNÁRIO OPÇÃO 1 */}
-      <EmptyCart>
-        <Span1>Carrinho vazio</Span1>
-      </EmptyCart>
+      <EmptyCart>{/* <Span1>Carrinho vazio</Span1> */}</EmptyCart>
       {/* FAZER TERNÁRIO OPÇÃO 2 */}
-      {/* <RestInfo>
-        <NamesGreen>Nome restaurante</NamesGreen>
-        <p>R. Fradique Coutinho, 1136 - Vl Mada</p>
-        <p>50 - 60 min</p>
-      </RestInfo> */}
+      <RestInfo>
+        <NamesGreen>{orderRestau[0]?.name}</NamesGreen>
+        <p>{orderRestau[0]?.address}</p>
+        <p>{orderRestau[0]?.deliveryTime} min</p>
+      </RestInfo>
       <PriceStyle>
         <br></br>
+        {cartList}
         <br></br>
-        <Span2>Frete: R$:0,00</Span2>
+        <Span2>Frete: R$0,00</Span2>
         <SubTotalDiv>
           <span>SUBTOTAL</span>
           <NamesGreen>
-            <strong>R$:00,00</strong>
+            <strong>R$00,00</strong>
           </NamesGreen>
         </SubTotalDiv>
       </PriceStyle>

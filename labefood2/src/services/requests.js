@@ -111,7 +111,6 @@ export const getRestaurantDetail = (id, setData) => {
     })
     .then((res) => {
       setData(res.data.restaurant.products);
-      console.log("Pagina sendo exibida");
     })
     .catch((err) => {
       console.log("Deu erro");

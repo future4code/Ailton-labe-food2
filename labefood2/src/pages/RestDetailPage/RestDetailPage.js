@@ -19,10 +19,9 @@ import { Separator } from "../../styled";
 
 export default function RestDetailPage({ item }) {
   //useProtectedPage()
-  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts } =
-    useContext(GlobalContext);
+  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts } = useContext(GlobalContext);
   const params = useParams();
-  /*  const [details, setDetails] = useState([]); */
+
   useEffect(() => {
     getRestaurantDetail(`${params.id}`, setOptionProducts);
   }, []);
@@ -71,9 +70,10 @@ export default function RestDetailPage({ item }) {
         details={optionProducts}
       />
     ));
-
+/* 
   console.log(params.id); //retorna o id do restaurante (1)//
   console.log(Rest); //retorna array com o objeto do rest dentro//
+   */
   return (
     <>
       <AddCart />

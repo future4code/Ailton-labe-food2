@@ -22,6 +22,7 @@ export default function EditProfilePage() {
     event.preventDefault();
     UpdateProfile(form, goToUserProfile, navigate);
   };
+  
   return (
     <div>
       <Header type={"seta"} largura={"121.5px"} title={"Editar"} />
