@@ -15,12 +15,17 @@ import {
 
 //Pegar do localStorage - fazer reload?
 const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
-  const { setOrderId, cart, setOrderRestau } = useContext(GlobalContext);
+  const { setOrderId, cart, setOrderRestau, setCart } = useContext(GlobalContext);
 
   const isOnCart = cart?.filter((product) => product.id === item.id);
 
-  const deleteFromCart = (item) => {
-    return cart?.filter((product) => product.id !== item.id);
+  const deleteFromCart = (id) => {
+    const newCart = cart?.filter((product) => {
+      if (product.id !== id) {
+        return product
+      }
+    });
+    setCart(newCart)
   };
 
   return (
@@ -57,9 +62,9 @@ const RestItensCards = ({ item, setAdd, quantity, Rest, details }) => {
             </AddButton>
           ) : (
             <DeleteButton
-              onClick={() => {
-                deleteFromCart(item);
-              }}
+            onClick={() => {
+              deleteFromCart(item.id);
+            }}
             >
               Remover
             </DeleteButton>
