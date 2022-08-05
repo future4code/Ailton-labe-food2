@@ -21,7 +21,7 @@ import {
   NamesGreen,
   EmptyCart,
   RestInfo,
-  orderRestau
+  orderRestau,
 } from "./styled";
 
 export default function CartPage() {
@@ -37,16 +37,16 @@ export default function CartPage() {
   console.log(cart);
   console.log(orderRestau);
 
-//Calcular valor total
+  //Calcular valor total
 
   const Total = () => {
-  let totalValue = 0;
-  for (let product of cart) {
-    totalValue += product.price * product.quantity;
-  }
-  let totalWithShipping = totalValue + orderRestau[0]?.shipping;
-  return totalWithShipping
-};
+    let totalValue = 0;
+    for (let product of cart) {
+      totalValue += product.price * product.quantity;
+    }
+    let totalWithShipping = totalValue + orderRestau[0]?.shipping;
+    return totalWithShipping;
+  };
 
   const cartList = cart?.map((itemCart) => {
     <RestItensCards
@@ -66,26 +66,33 @@ export default function CartPage() {
         <Delivery>Endereço de Entrega</Delivery>
         <span>{user.address}</span>
       </StyleAddress>
-      {/* FAZER TERNÁRIO OPÇÃO 1 */}
-      <EmptyCart>{/* <Span1>Carrinho vazio</Span1> */}</EmptyCart>
-      {/* FAZER TERNÁRIO OPÇÃO 2 */}
-      <RestInfo>
-        <NamesGreen>{orderRestau[0]?.name}</NamesGreen>
-        <p>{orderRestau[0]?.address}</p>
-        <p>{orderRestau[0]?.deliveryTime} min</p>
-      </RestInfo>
-      <PriceStyle>
+      {cart.length === 0 && (
+        <EmptyCart>
+          <Span1>Carrinho Vazio</Span1>
+        </EmptyCart>
+      )}
+      {cart.length > 0 && (
+        <>
+        <RestInfo>
+          <NamesGreen>{orderRestau[0]?.name}</NamesGreen>
+          <p>{orderRestau[0]?.address}</p>
+          <p>{orderRestau[0]?.deliveryTime} min</p>
+        </RestInfo>
         <br></br>
         {cartList}
+        </>
+      )}
+      <PriceStyle>
         <br></br>
         <Span2>Frete: R${orderRestau[0]?.shipping},00</Span2>
         <SubTotalDiv>
           <span>SUBTOTAL</span>
           <NamesGreen>
-            <strong>R$            
-            {Total().toString().includes(".")
-              ? Total().toString().replace(".", ",")
-              : `${Total().toString()},00`}
+            <strong>
+              R$
+              {Total().toString().includes(".")
+                ? Total().toString().replace(".", ",")
+                : `${Total().toString()},00`}
             </strong>
           </NamesGreen>
         </SubTotalDiv>

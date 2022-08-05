@@ -13,19 +13,30 @@ export const GlobalState = (props) => {
   const [orderId, setOrderId] = useState("");
   const [orderRestau, setOrderRestau] = useState("");
   const [quantity, setQuantity] = useState(0);
-  const [cart, setCart] = useState([]);
-  const [pedido, setPedido]= useState(false);
+  const [cart, setCart] = useState("");
+  const [pedido, setPedido] = useState(false);
   const [currentOrder, setCurrentOrder] = useState([]);
-  const [optionProducts, setOptionProducts] = useState([])
-  
+  const [optionProducts, setOptionProducts] = useState([]);
+
   const logout = (navigate) => {
     localStorage.setItem("token", "");
     goToLogin(navigate);
   };
 
+  if (cart === "") {
+    const getLocal = JSON.parse(localStorage.getItem("cart"));
+    setCart(getLocal ? getLocal : []);
+  }
+  if (orderRestau === "") {
+    const getLocal = JSON.parse(localStorage.getItem("rest"));
+    setOrderRestau(getLocal ? getLocal : []);
+  }
+
   useEffect(() => {
     getRestaurants(setRestaurantsArray);
-  }, [token]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("rest", JSON.stringify(orderRestau));
+  }, [token, cart, orderRestau]);
 
   const values = {
     logout,
@@ -42,11 +53,11 @@ export const GlobalState = (props) => {
     setCart,
     pedido,
     setPedido,
-    currentOrder, 
+    currentOrder,
     setCurrentOrder,
-    optionProducts, 
+    optionProducts,
     setOptionProducts,
-    orderRestau, 
+    orderRestau,
     setOrderRestau,
   };
 

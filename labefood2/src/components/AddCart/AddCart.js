@@ -45,10 +45,7 @@ export const AddCart = () => {
     }  */
   };
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
+ 
   return (
     <>
       {add && (

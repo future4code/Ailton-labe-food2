@@ -42,6 +42,7 @@ export default function RestDetailPage({ item }) {
         item={item}
         Rest={Rest}
         details={optionProducts}
+        type={"detalhes"}
       />
     ));
 
@@ -55,6 +56,7 @@ export default function RestDetailPage({ item }) {
         item={item}
         Rest={Rest}
         details={optionProducts}
+        type={"detalhes"}
       />
     ));
 
@@ -68,6 +70,7 @@ export default function RestDetailPage({ item }) {
         item={item}
         Rest={Rest}
         details={optionProducts}
+        type={"detalhes"}
       />
     ));
 /* 
