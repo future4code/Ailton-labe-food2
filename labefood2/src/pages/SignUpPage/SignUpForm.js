@@ -20,10 +20,18 @@ export default function SignUpForm() {
     cpf: '',
     password: '',
   });
-  const [confirmPassword, setConfirmPassword] = useState('');
+  
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const onChangeConfirm = (event) => {
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setShowPassword(!showPassword);
+  };
+
+ const onChangeConfirm = (event) => {
     setConfirmPassword(event.target.value);
   };
 
@@ -76,7 +84,7 @@ export default function SignUpForm() {
           name={'password'}
           value={form.password}
           onChange={onChange}
-          type="password"
+          type= {showPassword ? "text" : "password"}
           pattern="^(?=.*[a-z]).{6,10}$"
           required
         />
@@ -90,7 +98,7 @@ export default function SignUpForm() {
           name={'confirmPassword'}
           value={confirmPassword}
           onChange={onChangeConfirm}
-          type="password"
+          type= {showPassword ? "text" : "password"}
           pattern="^(?=.*[a-z]).{6,10}$"
           required
         />
