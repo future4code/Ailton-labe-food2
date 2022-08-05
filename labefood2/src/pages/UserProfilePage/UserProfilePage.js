@@ -45,7 +45,7 @@ export default function UserProfilePage() {
           <p>{user.email}</p>
           <p>{user.cpf}</p>
           <Separator />
-       {/* <ButtonLogout onClick={ logout(navigate) }>logout</ButtonLogout> */}
+       <ButtonLogout onClick={ () => logout(navigate) }>logout</ButtonLogout>
           <Separator height={"30px"}/> 
         </InternalContainer>
         <PencilContainer
