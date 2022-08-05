@@ -11,7 +11,8 @@ import {
   HistoryContainter,
   InternalContainer,
   PencilContainer,
-  ButtonLogout
+  ButtonLogout,
+  DivButton
 } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { goToEditProfile, goToEditAddress } from "../../routes/coordinator";
@@ -45,7 +46,11 @@ export default function UserProfilePage() {
           <p>{user.email}</p>
           <p>{user.cpf}</p>
           <Separator />
-       <ButtonLogout onClick={ () => logout(navigate) }>logout</ButtonLogout>
+
+          <DivButton> 
+            <ButtonLogout onClick={ () => logout(navigate) }>LOGOUT</ButtonLogout>
+          </DivButton>
+      
           <Separator height={"30px"}/> 
         </InternalContainer>
         <PencilContainer

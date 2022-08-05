@@ -19,7 +19,7 @@ width: 24px;
 `
 export const StyleAddress = styled.div`
 background-color: #eeeeee;
-height: 76px;
+height: auto;
 width: 360px;
 padding: 16px;
 display: flex;
@@ -30,6 +30,7 @@ export const Delivery = styled.span`
 display: flex;
 color: #b8b8b8;
 padding-bottom: 8px;
+word-break: break-all;
 `;
 export const HistoryContainter = styled.div`
 padding-left: 16px;
@@ -46,6 +47,13 @@ border-bottom: 1px solid black;
 
 export const ButtonLogout = styled.button`
 border: none;
-padding: 2px;
-margin-bottom: 10px;
+padding: 3px;
+margin-bottom: 15px;
+background-color: ${midGreen};
+
+`
+export const DivButton = styled.div`
+width: 280px;
+display: flex;
+justify-content: flex-end;
 `
