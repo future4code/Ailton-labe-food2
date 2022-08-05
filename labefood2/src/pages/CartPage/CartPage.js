@@ -111,7 +111,7 @@ export default function CartPage() {
               name="dinheiro"
               value="dinheiro"
               onChange={() => {
-                setPayMethod("dinheiro");
+                setPayMethod("money");
               }}
             />
             <span>Dinheiro</span>

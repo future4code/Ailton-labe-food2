@@ -13,8 +13,8 @@ export const Login = (body, goTo, navigate, clear) => {
       console.log("deu certo");
     })
     .catch((err) => {
-      alert("Usuário não encontrado");
-      console.log("ih ;;");
+      window.alert("Usuário não encontrado");
+      console.log("Ih...", err);
     });
 };
 
@@ -29,7 +29,7 @@ export const Singup = (body, goTo, navigate, clear) => {
     })
     .catch((err) => {
       alert("Verifique se todos os campos foram preenchidos");
-      console.log("Algo saiu errado");
+      console.log("Algo saiu errado", err);
     });
 };
 

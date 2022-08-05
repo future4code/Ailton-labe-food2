@@ -26,15 +26,17 @@ export default function UserProfilePage() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
-  const { logout } = useContext(GlobalContext);
+  const { logout, orderObjeto } = useContext(GlobalContext);
 
   useEffect(() => {
     Profile(setUser);
     getOrderHistory(setOrderHistory);
   }, []);
 
+console.log(orderHistory);
+
   const historyList = orderHistory?.map((item) => (
-    <HistoryCard key={item.id} item={item} />
+    <HistoryCard key={item.createdAt} item={item} />
   ));
 
   return (
