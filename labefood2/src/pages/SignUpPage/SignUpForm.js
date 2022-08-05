@@ -11,7 +11,9 @@ import {
 import { goToSignUpAdress } from '../../routes/coordinator';
 import { Singup } from '../../services/requests';
 import SenhaImg from '../../assets/senha.svg';
+import SenhaImg2 from '../../assets/senha2.svg'
 import { InputPassword, InputPContainer, ImgPassword } from './styled';
+import { greyish } from '../../constants/color';
 
 export default function SignUpForm() {
   const [form, onChange, clear] = useForm({
@@ -23,12 +25,15 @@ export default function SignUpForm() {
   
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const togglePassword = () => {
-    // When the handler is invoked
-    // inverse the boolean state of passwordShown
     setShowPassword(!showPassword);
+  };
+  const togglePassword2 = () => {
+    setShowPassword2(!showPassword2);
   };
 
  const onChangeConfirm = (event) => {
@@ -41,6 +46,7 @@ export default function SignUpForm() {
       console.log(form);
       Singup(form, goToSignUpAdress, navigate, clear);
     } else {
+      setError(true);
       window.alert('As senhas devem ser a mesma');
     }
   };
@@ -78,7 +84,7 @@ export default function SignUpForm() {
       />
       <LabelStyled>CPF*</LabelStyled>
       <Separator height={'16px'} />
-      <InputPContainer>
+      <InputPContainer style={{ borderColor: error ? "red" : `${greyish}` }}>
         <InputPassword
           placeholder="Mínimo 6 caracteres"
           name={'password'}
@@ -88,21 +94,21 @@ export default function SignUpForm() {
           pattern="^(?=.*[a-z]).{6,10}$"
           required
         />
-        <ImgPassword src={SenhaImg} />
+        <ImgPassword onClick={togglePassword} src={showPassword ? SenhaImg2 : SenhaImg}  />
       </InputPContainer>
       <LabelStyled>Senha*</LabelStyled>
       <Separator height={'16px'} />
-      <InputPContainer>
+      <InputPContainer style={{ borderColor: error ? "red" : `${greyish}` }}>
         <InputPassword
           placeholder="Confirme a senha a senha anterior"
           name={'confirmPassword'}
           value={confirmPassword}
           onChange={onChangeConfirm}
-          type= {showPassword ? "text" : "password"}
+          type= {showPassword2 ? "text" : "password"}
           pattern="^(?=.*[a-z]).{6,10}$"
           required
         />
-        <ImgPassword src={SenhaImg} />
+        <ImgPassword onClick={togglePassword2} src={showPassword2 ? SenhaImg2 : SenhaImg} />
       </InputPContainer>
       <LabelStyled>Confirmar*</LabelStyled>
       <Separator height={'16px'} />
