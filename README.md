@@ -15,10 +15,10 @@
 </p>
 
 ## Sobre
-Esse projeto tem como objetivo utilizar todo conhecimento aprendido durante os 3 primeiros meses do curso da Labenu (hooks, funcionalidade de frontend como: formulários, autenticaçao, routers e estilizaçoes). 
+Esse projeto tem como objetivo utilizar todo conhecimento aprendido durante os 3 primeiros meses do curso da Labenu (hooks, funcionalidade de frontend como: formulários, autenticação, routers e estilizações). 
 <br/>
 
-Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/5dcc566ddc1332bf7fb4f450) feito pela designer Camila Mizutani, com base na API privada [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT#3ca41feb-3e6c-4b75-91e8-54cf1e363c2c) e descriçao e alguns requisitos. A ideia era principalmente realizar um projeto que se aproximase das exigencias e funcionalidades que seram exigidas no dia-a-dia de muitas empresas.
+Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/5dcc566ddc1332bf7fb4f450) feito pela designer Camila Mizutani, com base na API privada [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT#3ca41feb-3e6c-4b75-91e8-54cf1e363c2c). A ideia era principalmente realizar um projeto que se aproximase das exigencias e funcionalidades que seram exigidas no dia-a-dia de muitas empresas.
 
 ## Tecnologias
 - [React](https://pt-br.reactjs.org/)
@@ -29,7 +29,7 @@ Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/
 - [Styled-Coponent]()
 - [Api-Rest]()
 ## Funcionalidades
-[x] Fluxo de Login/Cadastro
+[x] Fluxo de Login/Cadastro/Logout
 <br/>
 
 [x] Busca e Seleção de Restaurantes
