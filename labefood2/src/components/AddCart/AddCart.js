@@ -8,10 +8,10 @@ import {
   Select,
   AddCartTitle,
   TitleSelect,
-  GoBack
+  GoBack,
 } from "./styled";
 import { numbers } from "../../constants/numbers";
-import seta from "../../assets/seta.svg"
+import seta from "../../assets/seta.svg";
 
 export const AddCart = () => {
   const {
@@ -22,48 +22,50 @@ export const AddCart = () => {
     setQuantity,
     quantity,
     setPedido,
-    pedido,
     optionProducts,
     orderId,
     setOrderRestau,
-    
-    
+    orderRestau,
+    temporaryRest,
   } = useContext(GlobalContext);
 
   const onChangeValue = (event) => {
     setQuantity(event.target.value);
   };
 
- 
-  const AddIdButton = () => {
-    const [produtoA] = optionProducts.filter(
-      (produto) => produto.id === orderId
-    );
-    const newProdOrder = { ...produtoA, quantity };
-    setCart((cart) => [...cart, newProdOrder]);
-    /* let i = 0;
-    for (cartItem of cart){
-      if (cartItem.id !== orderId){
-        setCart((cart) => [...cart, newProdOrder])
-      }
-    }  */
+  const authRest = () => {
+    if (orderRestau.length === 0 || cart?.length === 0) {
+      setOrderRestau(temporaryRest);
+      const [produtoA] = optionProducts.filter(
+        (produto) => produto.id === orderId
+      );
+      const newProdOrder = { ...produtoA, quantity };
+      setCart((cart) => [...cart, newProdOrder]);
+    } else if (orderRestau[0].id === temporaryRest[0].id){
+      setOrderRestau(temporaryRest);
+      const [produtoA] = optionProducts.filter(
+        (produto) => produto.id === orderId
+      );
+      const newProdOrder = { ...produtoA, quantity };
+      setCart((cart) => [...cart, newProdOrder]);
+    } else{
+      window.alert("Esvazie seu carrinho antes de pedir de outro restaurante.");
+    }
   };
 
-
- 
   return (
     <>
       {add && (
         <ContainerAddCart>
           <ContainerBox>
             <Separator height={"43px"} />
-            <GoBack src={seta} onClick={()=>setAdd(false)}/>
+            <GoBack src={seta} onClick={() => setAdd(false)} />
             <TitleSelect>Selecione a quantidade desejada</TitleSelect>
             <Separator height={"31px"} />
             <Select value={quantity} name="quantity" onChange={onChangeValue}>
-              {/* <option selected disabled value="0">
+              <option selected disabled value="0">
                 0
-              </option> */}
+              </option>
               {numbers.map((item, index) => {
                 return <option key={index}>{item}</option>;
               })}
@@ -74,15 +76,14 @@ export const AddCart = () => {
                 onClick={() => {
                   setAdd(false);
                   setPedido(true);
-                  AddIdButton();
+                  authRest();
                 }}
               >
                 ADICIONAR AO CARRINHO
               </AddCartTitle>
             </DivAdd>
           </ContainerBox>
-        
-        </ContainerAddCart >
+        </ContainerAddCart>
       )}
     </>
   );

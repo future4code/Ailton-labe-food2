@@ -101,21 +101,23 @@ export const ButtonCart = styled.button`
   border-radius: 2px;
   border: none;
   margin-top: 0;
-  /*   position: fixed; */
   bottom: 65px;
 `;
 export const NamesGreen = styled.p`
   color: ${midGreen};
   font-size: 16px;
 `;
-
-export const DivPedidoAndamento = styled.div`
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:5px;
-width:300px;
-height:80px;
-border:solid 1px black;
-margin-top:200px;
-`
+export const ContainerGif = styled.div`
+  height: 93.7vh;
+  width: 360px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const ImgGif = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+`;

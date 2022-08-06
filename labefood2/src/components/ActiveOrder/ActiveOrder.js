@@ -12,7 +12,6 @@ export default function ActiveOrder() {
   function Order() {
     useEffect(() => {
       setTimeout(() => {
-        // goToHome(navigate)
       }, orderObjeto?.order?.expiresAt);
     }, []);
     return (
@@ -26,10 +25,7 @@ export default function ActiveOrder() {
           <p>{orderObjeto?.order?.restaurantName}</p>
           <p>
             <strong>
-              SUBTOTAL R$
-               {orderObjeto?.order?.totalPrice.toString().includes(".")
-                ? orderObjeto?.order?.totalPrice.toString().replace(".", ",")
-                : `${orderObjeto?.order?.totalPrice.toString()},00`}
+              SUBTOTAL R${orderObjeto?.order?.totalPrice?.toFixed(2).replace(".", ",")}
             </strong>
           </p>
         </ContainerOrder>

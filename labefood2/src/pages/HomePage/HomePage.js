@@ -19,7 +19,7 @@ import Search from "../../assets/search.svg";
 import ActiveOrder from "../../components/ActiveOrder/ActiveOrder";
 
 export default function HomePage() {
-  //useProtectedPage()
+  useProtectedPage();
   const [query, setQuery] = useState("");
   const { restaurantsArray, orderObjeto } = useContext(GlobalContext);
   const [selectCategory, setSelectCategory] = useState("");
@@ -53,10 +53,11 @@ export default function HomePage() {
     .map((item) => {
       return <CardHome key={item.id} item={item} />;
     });
+
   const onChangeQuery = (event) => {
     setQuery(event.target.value);
   };
-console.log("home", orderObjeto.order)
+
   return (
     <>
       {orderObjeto?.order !== null && <ActiveOrder />}

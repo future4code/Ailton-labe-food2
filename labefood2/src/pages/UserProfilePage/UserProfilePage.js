@@ -22,7 +22,7 @@ import { Separator } from "../../styled";
 import { GlobalContext } from "../../global/GlobalContext";
 
 export default function UserProfilePage() {
-  // useProtectedPage();
+  useProtectedPage();
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
@@ -32,8 +32,6 @@ export default function UserProfilePage() {
     Profile(setUser);
     getOrderHistory(setOrderHistory);
   }, []);
-
-console.log(orderHistory);
 
   const historyList = orderHistory?.map((item) => (
     <HistoryCard key={item.createdAt} item={item} />

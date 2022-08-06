@@ -13,17 +13,14 @@ const HistoryCard = ({ item }) => {
     let year = time.getFullYear()
     return `${day} de ${month} de ${year}`;
   };
-
+  
   return (
     <CardContainer>
       <NamesGreen>{item.restaurantName}</NamesGreen>
       <DataSentense>{convertDate(item.createdAt)}</DataSentense>
       <p>
         <strong>
-          SUBTOTAL R$
-          {item.totalPrice.toString().includes(".")
-            ? item.totalPrice.toString().replace(".", ",")
-            : `${item.totalPrice.toString()},00`}
+          SUBTOTAL R${item.totalPrice?.toFixed(2).replace(".", ",")}
         </strong>
       </p>
     </CardContainer>

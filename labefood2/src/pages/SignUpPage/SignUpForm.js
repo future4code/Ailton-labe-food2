@@ -46,7 +46,6 @@ export default function SignUpForm() {
       window.alert("As senhas devem ser a mesma");
     } else {
       event.preventDefault();
-      console.log(form);
       Singup(form, goToSignUpAdress, navigate, clear);
     }
   };
@@ -126,5 +125,3 @@ export default function SignUpForm() {
     </FormContainer>
   );
 }
-
-// ajeitar os inputs e ver pq o navigate não está funcionando

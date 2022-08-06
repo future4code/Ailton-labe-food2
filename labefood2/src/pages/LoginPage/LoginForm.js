@@ -12,7 +12,6 @@ export default function LoginForm() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    console.log(form);
     Login(form, goToHome, navigate, clear);
   };
 

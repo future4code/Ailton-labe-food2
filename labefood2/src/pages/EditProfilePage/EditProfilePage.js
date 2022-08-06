@@ -65,5 +65,3 @@ export default function EditProfilePage() {
     </div>
   );
 }
-
-// colocar navigate para tela de perfil
