@@ -84,10 +84,10 @@ $ npm run start
   - [LinkedIn](https://www.linkedin.com/in/mayara-costa-4b9751125/)
   - [GitHub](https://github.com/aonosorah)
 
--Murilo Caun
+- Murilo Caun
   - [LinkedIn](https://www.linkedin.com/in/murilo-caun-henrique-979430206/)
   - [GitHub](https://github.com/MuriloCaun)
-
+  
 - Myllena Miranda
   - [LinkedIn](https://www.linkedin.com/in/myllena-miranda-8923121b1/)
   - [GitHub](https://github.com/Myllenam)
