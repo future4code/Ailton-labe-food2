@@ -8,7 +8,7 @@
 <p align="center">
   <a href=#sobre>Sobre</a>
   <a href=#tecnologias>Tecnologias</a>
-  <a href=#features>Features</a>
+  <a href=#features>Funcionalidades</a>
   <a href=#link>Link</a>
   <a href=#pré-requisitos>Pré-requisitos</a>
   <a href=#autores>Autores</a>
