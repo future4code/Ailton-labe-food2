@@ -12,6 +12,7 @@ export const GlobalState = (props) => {
   const [restId, setRestId] = useState("");
   const [orderId, setOrderId] = useState("");
   const [orderRestau, setOrderRestau] = useState("");
+  const [temporaryRest, setTemporaryRest] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useState("");
   const [pedido, setPedido] = useState(false);
@@ -41,7 +42,6 @@ export const GlobalState = (props) => {
       localStorage.setItem("rest", JSON.stringify(orderRestau));
     }, [token, cart, orderRestau]);
   
-
     const values = {
     logout,
     restaurantsArray,
@@ -63,7 +63,9 @@ export const GlobalState = (props) => {
     setOptionProducts,
     orderRestau,
     setOrderRestau,
-    orderObjeto
+    orderObjeto,
+    temporaryRest, 
+    setTemporaryRest,
   };
 
   return <Provider value={values}>{props.children}</Provider>;

@@ -13,8 +13,7 @@ import {
 } from "./styled";
 
 const CartCard = ({ item }) => {
-  const { cart, setCart} =
-    useContext(GlobalContext);
+  const { cart, setCart, setOrderRestau } = useContext(GlobalContext);
 
   const deleteFromCart = (id) => {
     const newCart = cart?.filter((product) => {
@@ -23,6 +22,10 @@ const CartCard = ({ item }) => {
       }
     });
     setCart(newCart);
+    if(cart?.length === 0){
+      setOrderRestau([])
+      localStorage.setItem("rest", JSON.stringify([]));
+    }
   };
 
   return (
@@ -37,12 +40,7 @@ const CartCard = ({ item }) => {
           <p>{item.description}</p>
         </DescriptionContainer>
         <ItemNameContain>
-          <NamesBlack>
-            R$
-            {item.price.toString().includes(".")
-              ? item.price.toString().replace(".", ",")
-              : `${item.price.toString()},00`}
-          </NamesBlack>
+          <NamesBlack>R${item.price?.toFixed(2).replace(".", ",")}</NamesBlack>
           <DeleteButton
             onClick={() => {
               deleteFromCart(item.id);

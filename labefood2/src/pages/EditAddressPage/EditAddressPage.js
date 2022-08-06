@@ -27,7 +27,6 @@ export default function EditAddressPage() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    console.log(form);
     AddAddress(form, goToUserProfile, navigate, clear);
   };
   return (
@@ -94,5 +93,3 @@ export default function EditAddressPage() {
     </div>
   );
 }
-
-// colocar navigate para tela de perfil

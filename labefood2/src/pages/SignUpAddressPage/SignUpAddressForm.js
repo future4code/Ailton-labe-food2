@@ -19,7 +19,6 @@ export default function SignUpAddressForm() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    console.log(form);
     AddAddress(form, goToHome, navigate, clear);
   };
 
@@ -87,5 +86,3 @@ export default function SignUpAddressForm() {
     </FormContainer>
   );
 }
-
-// pesquisar os tipos de type, essa função dentro do form não pega

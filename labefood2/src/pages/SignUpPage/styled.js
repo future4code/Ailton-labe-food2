@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { greyish } from '../../constants/color';
 
 export const InputPassword = styled.input`
-  /* width: 328px;
-  height: 56px; */
   border-radius: 2px;
   border: none;
   padding: 16px;

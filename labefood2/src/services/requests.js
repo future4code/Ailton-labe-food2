@@ -10,7 +10,6 @@ export const Login = (body, goTo, navigate, clear) => {
       localStorage.setItem("token", res.data.token);
       goTo(navigate);
       clear();
-      console.log("deu certo");
     })
     .catch((err) => {
       window.alert("Usuário não encontrado");
@@ -25,7 +24,6 @@ export const Singup = (body, goTo, navigate, clear) => {
       localStorage.setItem("token", res.data.token);
       goTo(navigate);
       clear();
-      console.log("Cadastro realizado!");
     })
     .catch((err) => {
       alert("Verifique se todos os campos foram preenchidos");
@@ -40,7 +38,6 @@ export const AddAddress = (body, goTo, navigate, clear) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      console.log("Endereço adicionado");
       alert("Endereço adicionado");
       goTo(navigate);
       clear();
@@ -57,7 +54,6 @@ export const FullAddress = () => {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("Endereço localizado", res);
     })
     .catch((err) => {
       console.log("Ih ;;", err);
@@ -83,7 +79,6 @@ export const UpdateProfile = (body, goTo, navigate) => {
       headers: { auth: token },
     })
     .then((res) => {
-      console.log("Editado");
       goTo(navigate);
     })
     .catch((err) => {
@@ -131,7 +126,7 @@ export const PlaceOrder = (id, sendOrder, payMethod) => {
     })
     .catch((err) => {
       console.log(err);
-      alert('Algo deu errado. Verifique se escolheu uma opção de pagamento!')
+      alert('Algo deu errado. Verifique seu pedido e a forma de pagamento estão completos!')
     });
 };
 
@@ -142,7 +137,6 @@ export const ActiveOrder = (setData) => {
     })
     .then((res) => {
       setData(res.data)
-
     })
     .catch((err) => {
       console.log("deu erro");
@@ -156,7 +150,6 @@ export const getOrderHistory = (setData) => {
     })
     .then((res) => {
       setData(res.data.orders);
-      console.log("Deu certo");
     })
     .catch((err) => {
       console.log("Deu erro");

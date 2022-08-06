@@ -18,12 +18,13 @@ import { GlobalContext } from "../../global/GlobalContext";
 import { Separator } from "../../styled";
 
 export default function RestDetailPage({ item }) {
-  //useProtectedPage()
-  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts } = useContext(GlobalContext);
+  useProtectedPage()
+  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts, setTemporaryRest, temporaryRest } = useContext(GlobalContext);
   const params = useParams();
 
   useEffect(() => {
     getRestaurantDetail(`${params.id}`, setOptionProducts);
+    setTemporaryRest(Rest)
   }, []);
 
   const Rest = restaurantsArray?.filter((item) => {
@@ -73,10 +74,7 @@ export default function RestDetailPage({ item }) {
         type={"detalhes"}
       />
     ));
-/* 
-  console.log(params.id); //retorna o id do restaurante (1)//
-  console.log(Rest); //retorna array com o objeto do rest dentro//
-   */
+
   return (
     <>
       <AddCart />
