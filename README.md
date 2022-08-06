@@ -8,7 +8,7 @@
 <p align="center">
   <a href=#sobre>Sobre</a>
   <a href=#tecnologias>Tecnologias</a>
-  <a href=#features>Funcionalidades</a>
+  <a href=#funcionalidades>Funcionalidades</a>
   <a href=#link>Link</a>
   <a href=#pré-requisitos>Pré-requisitos</a>
   <a href=#autores>Autores</a>
@@ -28,7 +28,7 @@ Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/
 - [Git]()
 - [Styled-Coponent]()
 - [Api-Rest]()
-## Features
+## Funcionalidades
 [x] Fluxo de Login/Cadastro
 <br/>
 
