@@ -68,7 +68,7 @@ export default function SignUpForm() {
         value={form.email}
         onChange={onChange}
         type="email"
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         required
       />
       <LabelStyled>E-mail*</LabelStyled>
@@ -90,7 +90,7 @@ export default function SignUpForm() {
           value={form.password}
           onChange={onChange}
           type={showPassword ? "text" : "password"}
-          pattern="^(?=.*[a-z]).{6,10}$"
+          pattern="^.{6,10}$"
           required
         />
         <ImgPassword
@@ -107,8 +107,9 @@ export default function SignUpForm() {
           value={confirmPassword}
           onChange={onChangeConfirm}
           type={showPassword2 ? "text" : "password"}
-          pattern="^(?=.*[a-z]).{6,10}$"
+          pattern="^.{6,10}$"
           required
+          title="A senha precisa ter no mínimo 6 caracteres e no máximo 10"
         />
         <ImgPassword
           onClick={togglePassword2}

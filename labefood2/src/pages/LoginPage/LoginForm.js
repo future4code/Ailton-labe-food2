@@ -22,7 +22,7 @@ export default function LoginForm() {
         name={"email"}
         value={form.email}
         onChange={onChange}
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         type="email"
         required
       />
@@ -36,8 +36,9 @@ export default function LoginForm() {
         value={form.password}
         onChange={onChange}
         type="password"
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        pattern="^.{6,10}$"
         required
+        title="A senha precisa ter no mínimo 6 caracteres e no máximo 10"
       />
       <LabelStyled>
         Senha*
