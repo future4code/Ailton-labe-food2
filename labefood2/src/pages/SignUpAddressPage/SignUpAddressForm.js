@@ -3,7 +3,7 @@ import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { InputStyled, Separator, FormContainer, LabelStyled, } from "../../styled";
-import { goToHome, goToLogin, goToSignUp } from "../../routes/coordinator";
+import { goToHome } from "../../routes/coordinator";
 import { AddAddress } from "../../services/requests";
 
 export default function SignUpAddressForm() {
@@ -50,13 +50,14 @@ export default function SignUpAddressForm() {
         onChange={onChange}
         required
       />
-      <LabelStyled>Complemento</LabelStyled>
+      <LabelStyled>Complemento*</LabelStyled>
       <Separator height={"16px"} />
       <InputStyled
         placeholder="Bairro"
         name={"neighbourhood"}
         value={form.neighbourhood}
         onChange={onChange}
+        required
       />
       <LabelStyled>Bairro*</LabelStyled>
       <Separator height={"16px"} />

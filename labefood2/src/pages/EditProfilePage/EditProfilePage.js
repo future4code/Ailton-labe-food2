@@ -15,7 +15,7 @@ import { goToUserProfile } from "../../routes/coordinator";
 
 export default function EditProfilePage() {
   useProtectedPage();
-  const [form, onChange, clear] = useForm({ name: "", email: "", cpf: "" });
+  const [form, onChange] = useForm({ name: "", email: "", cpf: "" });
   const navigate = useNavigate();
 
   const onSubmitForm = (event) => {

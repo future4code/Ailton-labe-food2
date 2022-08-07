@@ -26,7 +26,7 @@ export default function UserProfilePage() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
-  const { logout, orderObjeto } = useContext(GlobalContext);
+  const { logout } = useContext(GlobalContext);
 
   useEffect(() => {
     Profile(setUser);
@@ -72,7 +72,7 @@ export default function UserProfilePage() {
       </StyleAddress>
       <HistoryContainter>
         <NamesBlackBorder>Histórico de pedidos</NamesBlackBorder>
-        {orderHistory.length == 0 ? (
+        {orderHistory.length === 0 ? (
           <>
             <Separator height="10px" />
             <p>Você ainda não tem histórico.</p>

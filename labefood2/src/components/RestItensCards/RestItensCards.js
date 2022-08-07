@@ -14,7 +14,7 @@ import {
 } from "./styled";
 
 const RestItensCards = ({ item, setAdd, quantity, details }) => {
-  const { setOrderId, cart, setOrderRestau, setCart, orderRestau } = useContext(GlobalContext);
+  const { setOrderId, cart, setOrderRestau, setCart } = useContext(GlobalContext);
 
   const isOnCart = cart?.filter((product) => product.id === item.id);
 

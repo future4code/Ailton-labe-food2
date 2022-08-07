@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { goToLogin } from "../routes/coordinator";
 import { GlobalContext } from "./GlobalContext";
-import { useRequest } from "../hooks/useRequest";
 import { ActiveOrder, getRestaurants } from "../services/requests";
 import { token } from "../constants/token";
 

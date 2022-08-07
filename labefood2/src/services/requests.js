@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 import { BASE_URL } from "../constants/url";
 import { token } from "../constants/token";
 
@@ -12,7 +11,7 @@ export const Login = (body, goTo, navigate, clear) => {
       clear();
     })
     .catch((err) => {
-      window.alert("Usuário não encontrado");
+      window.alert(`Verifique se os dados estão corretos. Ocorreu o seguinte erro: ${err.response.data.message}`);
       console.log("Ih...", err);
     });
 };
@@ -20,7 +19,7 @@ export const Login = (body, goTo, navigate, clear) => {
 export const Singup = (body, goTo, navigate, clear) => {
   axios
     .post(`${BASE_URL}signup`, body)
-    .then((res) => {
+    .then((res) => {      
       localStorage.setItem("token", res.data.token);
       goTo(navigate);
       clear();
@@ -32,11 +31,13 @@ export const Singup = (body, goTo, navigate, clear) => {
 };
 
 export const AddAddress = (body, goTo, navigate, clear) => {
+  const token = localStorage.getItem("token");
   axios
     .put(`${BASE_URL}address`, body, {
       headers: { auth: token },
     })
     .then((res) => {
+      console.log(res)
       localStorage.setItem("token", res.data.token);
       alert("Endereço adicionado");
       goTo(navigate);
@@ -44,6 +45,7 @@ export const AddAddress = (body, goTo, navigate, clear) => {
     })
     .catch((err) => {
       alert("Verifique se todos os campos foram preenchidos");
+      console.log(token)
       console.log("Ver de novo, saiu errado", err);
     });
 };

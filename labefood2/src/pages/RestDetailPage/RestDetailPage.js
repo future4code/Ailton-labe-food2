@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import RestItensCards from "../../components/RestItensCards/RestItensCards";
@@ -19,7 +19,7 @@ import { Separator } from "../../styled";
 
 export default function RestDetailPage({ item }) {
   useProtectedPage()
-  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts, setTemporaryRest, temporaryRest } = useContext(GlobalContext);
+  const { setAdd, quantity, restaurantsArray, setOptionProducts, optionProducts, setTemporaryRest } = useContext(GlobalContext);
   const params = useParams();
 
   useEffect(() => {
