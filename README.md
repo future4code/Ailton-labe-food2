@@ -3,7 +3,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/104741572/183260952-c1a1cc29-a549-4ed9-8dcb-00b75cf987e4.png"/><p/>
 <br/>
 
-[Link do Surge](https://futurefoods2.surge.sh/login)
+[Link do Surge](https://future-eats2.surge.sh)
 
 <p align="center">
   <a href=#sobre>Sobre</a>
@@ -44,7 +44,7 @@ Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/
 [x] Perfil, Editar Perfil e Histórico de Pedidos
 ## Link
 
-[Visite nosso site](https://futurefoods2.surge.sh/login)
+[Visite nosso site](https://future-eats2.surge.sh)
 
 ## Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
