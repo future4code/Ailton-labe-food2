@@ -18,7 +18,7 @@
 Esse projeto tem como objetivo utilizar todo conhecimento aprendido durante os 3 primeiros meses do curso da Labenu (hooks, funcionalidade de frontend como: formulários, autenticação, routers e estilizações). 
 <br/>
 
-Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/5dcc566ddc1332bf7fb4f450) feito pela designer Camila Mizutani e com base na API privada [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT#3ca41feb-3e6c-4b75-91e8-54cf1e363c2c), utilizamos o Galaxy S5 Android 5.0 como parâmetro na hora de desenvolver nosso projeto. A ideia era principalmente realizar um projeto que se aproximasse das exigências e funcionalidades que são exigidas no dia-a-dia de muitas empresas.
+Tivemos que reproduzir o layout do [FutureEats](https://scene.zeplin.io/project/5dcc566ddc1332bf7fb4f450) feito pela designer Camila Mizutani e com base na API privada [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT#3ca41feb-3e6c-4b75-91e8-54cf1e363c2c), utilizamos o Galaxy S5(360x640) como parâmetro na hora de desenvolver nosso projeto. A ideia era principalmente realizar um projeto que se aproximasse das exigências e funcionalidades que são exigidas no dia-a-dia de muitas empresas.
 
 ## Tecnologias
 - [React](https://pt-br.reactjs.org/)
