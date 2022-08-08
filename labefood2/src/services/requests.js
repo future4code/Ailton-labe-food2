@@ -39,7 +39,6 @@ export const AddAddress = (body, goTo, navigate, clear) => {
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       goTo(navigate);
-      alert("Endereço adicionado");
       clear();
     })
     .catch((err) => {
